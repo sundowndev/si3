@@ -1,18 +1,36 @@
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>site de streaming</title>
+  <meta charset="UTF-8">
+  <title>site de streaming</title>
 </head>
+
 <body>
-    <div class="player"></div>
-    
-    <script>
-        var video = new videoPlayer('.player', {
-            // Parameters
-            autoplay: false,
-            loop: false,
-            defaultVolume: 60
-        });
-    </script>
+
+  <div class="player">
+    <div class="bottomPlayer">
+      <div class="time">
+
+      </div>
+      <div class="timeLapsed">
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="player"></div>
+
+  <script>
+    var video = new videoPlayer('.player', {
+      // Parameters
+      autoplay: false,
+      loop: false,
+      defaultVolume: 60
+    });
+  </script>
 </body>
+
 </html>
