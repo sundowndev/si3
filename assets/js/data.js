@@ -2,6 +2,7 @@ var data = {
     categories: ['Action', 'Animation', 'Comedy', 'Horror / Thriller'],
     max_rating: 5,
     films: [{
+        id: 'YQVOt0',
         src: 'TIE+Fighter+-+short+film(720p).mp4',
         title: 'TIE Fighter - short film',
         duration: '7:27',
@@ -18,6 +19,7 @@ var data = {
         rating: 4,
         category: 'Animation'
     }, {
+        id: 'E56OdM',
         src: 'Naruto+Live+Action+(avec+Florian+Nguyen+et+Aziatomik)(720p).mp4',
         title: 'Naruto Live Action (avec Florian Nguyen et Aziatomik)',
         duration: '1:47',
@@ -34,6 +36,7 @@ var data = {
         rating: 3,
         category: 'Action'
     }, {
+        id: 'cRRdOT',
         src: 'Dragon+Ball+vs+Naruto.+Anime+fight.(720p).mp4',
         title: 'Dragon Ball vs Naruto. Anime fight',
         duration: '8:39',
@@ -51,6 +54,7 @@ var data = {
         rating: 5,
         category: 'Action'
     }, {
+        id: 'zsHLu2',
         src: 'Naruto+Shippuden_+Dance+of+War+-+Short+Film+(Turn+On+Subtitles)(1080p).mp4',
         title: 'Naruto Shippuden: Dance of War - Short Film',
         duration: '7:48',
@@ -68,6 +72,7 @@ var data = {
         rating: 4,
         category: 'Action'
     }, {
+        id: '1yas3y',
         src: 'NARUTO+-+New+Movie+2018+-+Full+Trailer+AMAZING!!(720p).mp4',
         title: 'NARUTO - New Movie 2018',
         duration: '12:50',
@@ -85,6 +90,7 @@ var data = {
         rating: 3,
         category: 'Action'
     }, {
+        id: 'Ihy151',
         src: 'Naruto+The+Movie!+(Official+Fake+Trailer)(720p).mp4',
         title: 'Naruto The Movie! (Official Fake Trailer)',
         duration: '3:15',
@@ -102,6 +108,7 @@ var data = {
         rating: 3,
         category: 'Comedy'
     }, {
+        id: 'SxofFn',
         src: 'Red+Hood_+The+Fallen+-+DC+Comic+Batman+Fan+Film(720p).mp4',
         title: 'Red Hood: The Fallen - DC Comic Batman Fan Film',
         duration: '23:16',
@@ -119,6 +126,7 @@ var data = {
         rating: 5,
         category: 'Action'
     }, {
+        id: 'uBdzw3',
         src: 'JUSTICE+LEAGUE_+Trinity+Force+_+DC+FAN+FILM+_(720p).mp4',
         title: 'JUSTICE LEAGUE: Trinity Force | DC FAN FILM |',
         duration: '16:29',
@@ -136,6 +144,7 @@ var data = {
         rating: 2.5,
         category: 'Action'
     }, {
+        id: '5lWGCI',
         src: 'The+Mad+Hatter+-+Fan+Film(720p).mp4',
         title: 'The Mad Hatter - Fan Film',
         duration: '6:16',
@@ -153,6 +162,7 @@ var data = {
         rating: 2,
         category: 'Horror / Thriller'
     }, {
+        id: 'LtLD83',
         src: 'The+Flash+Lite+(comedy+fan+film)(720p).mp4',
         title: 'The Flash Lite (comedy fan film)',
         duration: '10:14',
@@ -170,6 +180,7 @@ var data = {
         rating: 4,
         category: 'Comedy'
     }, {
+        id: 'aaaaaa',
         src: 'Clash+at+the+Cantina+(2014)+-+Star+Wars+Fan+Film(720p).mp4',
         title: 'Clash at the Cantina (2014) - Star Wars Fan Film',
         duration: '4:45',
@@ -187,6 +198,7 @@ var data = {
         rating: 4,
         category: 'Comedy'
     }, {
+        id: 'aaaaaa',
         src: 'THE+74th+HUNGER+GAMES+(SHORT+COMEDY+FAN+FILM)(720p).mp4',
         title: 'THE 74th HUNGER GAMES (SHORT COMEDY FAN FILM)',
         duration: '4:24',
@@ -204,6 +216,7 @@ var data = {
         rating: 2,
         category: 'Comedy'
     }, {
+        id: 'aaaaaa',
         src: 'VICTIM+-+A+Short+Slender+Man+Horror+Film(720p).mp4',
         title: 'VICTIM - A Short Slender Man Horror Film',
         duration: '14:30',
@@ -221,12 +234,12 @@ var data = {
         rating: 4,
         category: 'Horror / Thriller'
     }, {
+        id: 'aaaaaa',
         src: 'DON&#039;T+MOVE+-+A+Short+Horror+Film+(2017)(720p).mp4',
         title: 'FALLOUT - Apocalyptic Thriller Short Film',
         duration: '7:27',
         author: 'AndrewProductionsTV',
         author_url: 'https://www.youtube.com/channel/UCOAHgaVjyUjFtxhgCAQ_vAg',
-        description: ' ',
         description: {
           fr: '???',
           en: 'FALLOUT -  Apocalyptic Thriller Short Film. Aaron, a young researcher seeks to discover the deadly disease that plagues Earth. This project is meant to convey the philosophical message that Humans are the deadliest beings to ever walk the Earth through Industrialism, Animal Cruelty/Exploitation, and War.',
@@ -239,6 +252,7 @@ var data = {
         rating: 3,
         category: 'Horror / Thriller'
     }, {
+        id: 'aaaaaa',
         src: 'Dragon+Ball+Z_+Light+of+Hope+-+Pilot(720p).mp4',
         title: 'Dragon Ball Z: Light of Hope - Pilot',
         duration: '13:14',
@@ -256,6 +270,7 @@ var data = {
         rating: 4,
         category: 'Action'
     }, {
+        id: 'aaaaaa',
         src: 'Attack+on+Titan+-+LEVI+vs+BEAST+TITAN+-+Fan+made+animation+-+Shingeki+no+kyojin+manga+chapter+81(480p).mp4',
         title: 'Attack on Titan - LEVI vs BEAST TITAN - Fan made animation',
         duration: '1:14',
@@ -273,6 +288,8 @@ var data = {
         rating: 4,
         category: 'Animation'
     }, {
+        id: 'aaaaaa',
+        id: 'aaaaaa',
         src: 'Chinese+teenager+created+awesome+fight+scene+animation(536p).mp4',
         title: 'Personal Animated Short 【Heat vs Repulsion】自主制作アニメ',
         duration: '3:50',
@@ -290,6 +307,7 @@ var data = {
         rating: 5,
         category: 'Animation'
     }, {
+        id: 'aaaaaa',
         src: 'SPAWN_+THE+RECALL+-+FAN+FILM(720p).mp4',
         title: 'SPAWN: THE RECALL - FAN FILM',
         duration: '7:56',
@@ -307,6 +325,7 @@ var data = {
         rating: 4,
         category: 'Horror / Thriller'
     }, {
+        id: 'aaaaaa',
         src: '[Rebeler]+Madara+VS+Hashirama+-+Cosplay+Movie(720p).mp4',
         title: '[Rebeler] Madara VS Hashirama - Cosplay Movie',
         duration: '8:06',

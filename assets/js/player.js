@@ -1,4 +1,4 @@
-function videoPlayer(player, options) {
+function videoPlayer(player, options, data) {
     this.player = document.querySelector(player);
     this.options = options;
     
@@ -9,63 +9,65 @@ function videoPlayer(player, options) {
     this.options.playing = false;
     
     /* Init the player */
-    var videoTag = document.createElement('video');
-    this.player.appendChild(videoTag);
-    videoTag.preload = 'auto';
+    this.player.innerHTML = '<div></div>';
     
-    var mainDiv = document.createElement('div');
-    mainDiv.classList.add('mainDiv');
-    this.player.appendChild(mainDiv);
-    
-    /* Play button */
-    var pButton = document.createElement('button');
-    pButton.classList.add('pButton');
-    mainDiv.appendChild(pButton);
-    pButton.innerHTML = 'play';
-    
-    /* Timeline element */
-    var timeline = document.createElement('div');
-    timeline.classList.add('timeline');
-    mainDiv.appendChild(timeline);
-    
-    var progress = document.createElement('div');
-    progress.classList.add('progress');
-    timeline.appendChild(progress);
-    
-    var loaded = document.createElement('div');
-    loaded.classList.add('loaded');
-    timeline.appendChild(loaded);
-    
-    /* Song duration element */
-    var timer = document.createElement('div');
-    timer.classList.add('timer');
-    mainDiv.appendChild(timer);
-    
-    /* Volume control element */
-    var volumeControl = document.createElement('div');
-    volumeControl.classList.add('volumeControl');
-    this.player.appendChild(volumeControl);
+//    var videoTag = document.createElement('video');
+//    this.player.appendChild(videoTag);
+//    videoTag.preload = 'auto';
+//    
+//    var mainDiv = document.createElement('div');
+//    mainDiv.classList.add('mainDiv');
+//    this.player.appendChild(mainDiv);
+//    
+//    /* Play button */
+//    var pButton = document.createElement('button');
+//    pButton.classList.add('pButton');
+//    mainDiv.appendChild(pButton);
+//    pButton.innerHTML = 'play';
+//    
+//    /* Timeline element */
+//    var timeline = document.createElement('div');
+//    timeline.classList.add('timeline');
+//    mainDiv.appendChild(timeline);
+//    
+//    var progress = document.createElement('div');
+//    progress.classList.add('progress');
+//    timeline.appendChild(progress);
+//    
+//    var loaded = document.createElement('div');
+//    loaded.classList.add('loaded');
+//    timeline.appendChild(loaded);
+//    
+//    /* Song duration element */
+//    var timer = document.createElement('div');
+//    timer.classList.add('timer');
+//    mainDiv.appendChild(timer);
+//    
+//    /* Volume control element */
+//    var volumeControl = document.createElement('div');
+//    volumeControl.classList.add('volumeControl');
+//    this.player.appendChild(volumeControl);
     
     /* functions */
-    this.setSong = function(id){
+    this.set = function(id){
         this.options.index = id;
-        audio.src = this.options.songList[id].path;
-        audio.load();
+        video.src = './data/'+id;
+        video.load();
     }
     
     this.play = function(){
-        audio.play();
+        video.play();
         pButton.innerHTML = 'pause';
     }
     
     this.pause = function(){
-        audio.pause();
+        video.pause();
         pButton.innerHTML = 'play';
     }
     
     this.stop = function(){
-        audio.pause();
-        audio.currentTime = 0;
+        video.pause();
+        video.currentTime = 0;
         pButton.innerHTML = 'play';
         options.playing = false;
     }
@@ -103,7 +105,7 @@ function videoPlayer(player, options) {
     }
     
     this.setVolume = function(vol){
-        audio.volume = vol * 0.01; // round 100 to 1
+        video.volume = vol * 0.01; // round 100 to 1
     }
     
     var getCurrentTimerPourcentage = function(){
@@ -113,7 +115,6 @@ function videoPlayer(player, options) {
     
     var getCurrentTimerSec = function(){
         //audio.currentTime/audio.duration
-        
         timeline.style.width = '40%';
     }
     
@@ -130,19 +131,19 @@ function videoPlayer(player, options) {
     }
     
     this.refreshTimer = function(){
-        this.setCurrentTimer(audio.currentTime);
+        this.setCurrentTimer(video.currentTime);
         
         timer.innerHTML = '<span class="played">'+this.options.current_timeline+'</span> / <strong class="duration">'+this.options.timeline+'</strong>';
     }
     
     /* Create the audio object */
-    var audio = new Audio();
+    var video = new Video();
     
     this.setSong(this.options.index);
     this.setVolume(this.options.defaultVolume);
     
-    audio.addEventListener('canplay', function() {
-        setDuration(audio.duration);
+    video.addEventListener('canplay', function() {
+        setDuration(video.duration);
         self.refreshTimer();
     });
     
@@ -168,15 +169,15 @@ function videoPlayer(player, options) {
         //console.log('test1');
     });
     
-    audio.addEventListener("playing", function(){
+    video.addEventListener("playing", function(){
         nanoPlayer.options.playing = true;
     });
     
-    audio.addEventListener("timeupdate", function(){
+    video.addEventListener("timeupdate", function(){
         nanoPlayer.refreshTimer();
     });
     
-    audio.addEventListener("ended", function(){
+    video.addEventListener("ended", function(){
         if(options.loop === true && options.songList.indexOf(options.songList[options.index]) == options.songList.length - 1){
             nanoPlayer.play();
         }else{

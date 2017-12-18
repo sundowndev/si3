@@ -6,13 +6,19 @@
 <body>
     <div class="player"></div>
     
+    <script src="assets/js/player.js"></script>
+    
+    <script src="assets/js/data.js"></script>
+    
     <script>
         var video = new videoPlayer('.player', {
             // Parameters
             autoplay: false,
             loop: false,
             defaultVolume: 60
-        });
+        }, data);
+        
+        //video.set('a5dMxYp');
     </script>
 </body>
 </html>
