@@ -9,8 +9,16 @@ function videoPlayer(player, options, data) {
     this.options.playing = false;
     
     /* Init the player */
-    this.player.innerHTML = '<div></div>';
+    /* Play button */
+    var pButton = document.querySelector('.playButton');
     
+    /* Timeline */
+    var timeline = document.querySelector('.time');
+    
+    /* timer element */
+    var timer = document.querySelector('div');
+    
+    //this.player.innerHTML = '<div></div>';
 //    var videoTag = document.createElement('video');
 //    this.player.appendChild(videoTag);
 //    videoTag.preload = 'auto';
@@ -48,6 +56,9 @@ function videoPlayer(player, options, data) {
 //    volumeControl.classList.add('volumeControl');
 //    this.player.appendChild(volumeControl);
     
+    /* Create the audio object */
+    var video = document.querySelector('#videoPlayer');
+    
     /* functions */
     this.set = function(id){
         this.options.index = id;
@@ -55,24 +66,23 @@ function videoPlayer(player, options, data) {
         video.load();
     }
     
-    this.play = function(){
+    var play = function(){
         video.play();
-        pButton.innerHTML = 'pause';
+        pButton.innerHTML = '&#9208;';
     }
     
-    this.pause = function(){
+    var pause = function(){
         video.pause();
-        pButton.innerHTML = 'play';
+        pButton.innerHTML = '&#9658;';
     }
     
     this.stop = function(){
         video.pause();
         video.currentTime = 0;
-        pButton.innerHTML = 'play';
         options.playing = false;
     }
     
-    this.prev = function(){
+    var prev = function(){
         if(options.songList.indexOf(options.songList[options.index]) != 0){
             options.index -= 1;
             this.setSong(options.index);
@@ -88,7 +98,7 @@ function videoPlayer(player, options, data) {
         }
     }
     
-    this.next = function(){
+    var next = function(){
         if(options.songList.indexOf(options.songList[options.index]) != options.songList.length - 1){
             options.index += 1;
             this.setSong(options.index);
@@ -104,7 +114,7 @@ function videoPlayer(player, options, data) {
         }
     }
     
-    this.setVolume = function(vol){
+    var setVolume = function(vol){
         video.volume = vol * 0.01; // round 100 to 1
     }
     
@@ -124,27 +134,24 @@ function videoPlayer(player, options, data) {
         options.timeline = minutes.substr(-2) + ":" + seconds.substr(-2);
     }
     
-    this.setCurrentTimer = function(currentTime){
+    var setCurrentTimer = function(currentTime){
         var minutes = "0" + Math.floor(currentTime / 60);
         var seconds = "0" + (Math.floor(currentTime) - minutes * 60);
-        this.options.current_timeline = minutes.substr(-2) + ":" + seconds.substr(-2);
+        options.current_timeline = minutes.substr(-2) + ":" + seconds.substr(-2);
     }
     
-    this.refreshTimer = function(){
-        this.setCurrentTimer(video.currentTime);
+    var refreshTimer = function(){
+        setCurrentTimer(video.currentTime);
         
-        timer.innerHTML = '<span class="played">'+this.options.current_timeline+'</span> / <strong class="duration">'+this.options.timeline+'</strong>';
+        //timer.innerHTML = '<span class="played">'+this.options.current_timeline+'</span> / <strong class="duration">'+this.options.timeline+'</strong>';
     }
     
-    /* Create the audio object */
-    var video = new Video();
-    
-    this.setSong(this.options.index);
-    this.setVolume(this.options.defaultVolume);
+    //this.setSong(this.options.index);
+    setVolume(this.options.defaultVolume);
     
     video.addEventListener('canplay', function() {
         setDuration(video.duration);
-        self.refreshTimer();
+        refreshTimer();
     });
     
     /* Using params */
@@ -155,10 +162,10 @@ function videoPlayer(player, options, data) {
     /* triggering elements */
     pButton.addEventListener('click', function(){
         if(options.playing === false){
-            nanoPlayer.play();
+            play();
             options.playing = true;
         }else{
-            nanoPlayer.pause();
+            pause();
             options.playing = false;
         }
     });
@@ -170,18 +177,18 @@ function videoPlayer(player, options, data) {
     });
     
     video.addEventListener("playing", function(){
-        nanoPlayer.options.playing = true;
+        options.playing = true;
     });
     
     video.addEventListener("timeupdate", function(){
-        nanoPlayer.refreshTimer();
+        refreshTimer();
     });
     
     video.addEventListener("ended", function(){
         if(options.loop === true && options.songList.indexOf(options.songList[options.index]) == options.songList.length - 1){
-            nanoPlayer.play();
+            play();
         }else{
-            nanoPlayer.next();
+            next();
         }
     });
 }

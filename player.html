@@ -2,15 +2,56 @@
 <head>
     <meta charset="UTF-8">
     <title>player vidéo</title>
+    <style>
+        video{
+            width: 300px;
+            height: auto;
+        }
+        
+        .bottomPlayer{
+            width: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .time{
+            background-color: blue;
+            width: 100px;
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="player">
-        <video src="./data/videos/Dragon+Ball+vs+Naruto.+Anime+fight.(720p).mp4"></video>
+        <video src="./data/videos/Dragon+Ball+vs+Naruto.+Anime+fight.(720p).mp4" id="videoPlayer"></video>
         
         <div class="bottomPlayer">
+          <div class="timer">
+              <span class="currentTime">00:00</span>
+              <span class="totalTime">00:00</span>
+          </div>
           <div class="time"></div>
           <div class="timeLapsed"></div>
+          <div class="controls">
+              <button class="volButton">vol</button>
+              <button class="playButton">&#9658;</button>
+              <button class="fullscreenButton">FS</button>
+          </div>
         </div>
     </div>
+    
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/player.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <script>
+        var video = new videoPlayer('.player', {
+            // Parameters
+            autoplay: false,
+            loop: false,
+            defaultVolume: 60
+        }, data.films);
+    </script>
 </body>
 </html>
