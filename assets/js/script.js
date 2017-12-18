@@ -65,6 +65,13 @@ var video = new videoPlayer('.player', {
     loop: false,
     defaultVolume: 60
 }, data.films);
+
+var filter = '';
+filters_btn = document.querySelector('.filter-btn');
+
+filters_btn.addEventListener(function(e){
+    filter = e.getAttribute('data');
+});
         
 //video.set('a5dMxYp');
 //getAllUrlParams().search

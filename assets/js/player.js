@@ -68,12 +68,12 @@ function videoPlayer(player, options, data) {
     
     var play = function(){
         video.play();
-        pButton.innerHTML = '&#9208;';
+        pButton.innerHTML = '&#9612;&#9612;';
     }
     
     var pause = function(){
         video.pause();
-        pButton.innerHTML = '&#9658;';
+        pButton.innerHTML = '&#9654;';
     }
     
     this.stop = function(){
