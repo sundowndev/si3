@@ -92,6 +92,10 @@ function getAllUrlParams(url) {
   return obj;
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 /* initialisation du player video */
 //var video = new videoPlayer('.player', {
 //    // Parameters
@@ -121,33 +125,54 @@ filters_btn.forEach(function(els){
 });
 
 var movieContainer = document.querySelector('.movieContainer');
+var imgContainer = '';
 
 setThumbnails(data.films);
 
-function setThumbnails(element) {
+async function setThumbnails(element) {
+    if(movieContainer.innerHTML != ''){
+        imgContainer = document.querySelectorAll('.imgContainer');
+        
+        imgContainer.forEach(function(els){
+            els.classList.add('hidden');
+            console.log('1');
+        });
+        
+        await sleep(300);
+    }
+    
     movieContainer.innerHTML = '';
     
     element.forEach(function(e){
+        var html = '<div class="imgContainer video-thumbnail hidden" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        
         if(filter == 'all'){
-            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+            movieContainer.innerHTML += html;
         }else if(filter == 'action' && e.category == 'Action'){
-            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+            movieContainer.innerHTML += html;
         }else if(filter == 'horror' && e.category == 'Horror / Thriller'){
-            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+            movieContainer.innerHTML += html;
         }else if(filter == 'animation' && e.category == 'Animation'){
-            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+            movieContainer.innerHTML += html;
         }else if(filter == 'comedy' && e.category == 'Comedy'){
-            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+            movieContainer.innerHTML += html;
         }
-
-        console.log(filter);
+    });
+    
+    await sleep(300);
+    
+    imgContainer = document.querySelectorAll('.imgContainer');
+    
+    imgContainer.forEach(function(els){
+        els.classList.remove('hidden');
+        console.log('2');
     });
 }
 
 var videos_thumbnails = document.querySelector('.video-thumbnail');
 
 videos_thumbnails.addEventListener('click', function(e){
-    video = e.getAttribute('data');
+    videoID = e.getAttribute('data');
 });
         
 /* on definie la langue */

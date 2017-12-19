@@ -3,7 +3,15 @@ body {
     background-color: #212025;
 }
 
-.container {
+header {
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.container,
+.header{
   width: 1138px;
   margin: auto;
 }
@@ -42,7 +50,7 @@ a {
 }
 
 .searchBar {
-    background-color: #212025;
+    background-color: transparent;
     color: #fff;
     border: none;
     height: 20px;
@@ -162,6 +170,11 @@ a {
     background-position: center;
     transition: .4s ease-in-out;
     vertical-align: top;
+    opacity: 1;
+}
+
+.imgContainer.hidden {
+    opacity: 0;
 }
 
 .imgContainer span {
