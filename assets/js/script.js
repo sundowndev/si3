@@ -135,7 +135,6 @@ async function setThumbnails(element) {
         
         imgContainer.forEach(function(els){
             els.classList.add('hidden');
-            console.log('1');
         });
         
         await sleep(300);
@@ -165,7 +164,6 @@ async function setThumbnails(element) {
     
     imgContainer.forEach(function(els){
         els.classList.remove('hidden');
-        console.log('2');
     });
 }
 
