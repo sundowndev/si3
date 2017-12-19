@@ -1,3 +1,36 @@
+var translate = {
+    fr: {
+        // header
+        title: '',
+        search: '',
+        // landing items
+        news: '',
+        top: '',
+        love: '',
+        // filters
+        all: '',
+        action: '',
+        horror: '',
+        animation: '',
+        comedy: ''
+    },
+    en: {
+        // header
+        title: '',
+        search: '',
+        // landing items
+        news: '',
+        top: '',
+        love: '',
+        // filters
+        all: '',
+        action: '',
+        horror: '',
+        animation: '',
+        comedy: ''
+    }
+}
+
 function getAllUrlParams(url) {
   // get query string from url (optional) or window
   var queryString = url ? url.split('?')[1] : window.location.search.slice(1);

@@ -47,6 +47,7 @@ a {
     border: none;
     height: 20px;
     margin-right: 60px;
+    outline: none;
 }
 
 .icon {
