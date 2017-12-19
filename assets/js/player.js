@@ -200,25 +200,15 @@ function videoPlayer(player, options, data) {
     });
     
     // Fullscreen
-    this.player.addEventListener('dblclick', launchFullscreen);
-    //pauseScreen.addEventListener('dblclick', launchFullscreen);
-
-//    window.addEventListener('keydown', function(e){
-//        if(e.keyCode == 27 && parent.isFullscreen){
-//            parent.player.classList.remove('fullscreen');
-//            parent.isFullscreen = false;
-//        }
-//    });
+    video.addEventListener('dblclick', launchFullscreen);
 
     function launchFullscreen(){
         if(parent.options.isFullscreen == false){
-            parent.player.classList.add('fullscreen');
             fullscreen.innerHTML = '<img class="noFullscreen" src="data/playerButtons/ExitFullScreen.png">';
             
             launchIntoFullscreen();
             parent.options.isFullscreen = true;
         } else if (parent.options.isFullscreen == true){
-            parent.player.classList.remove('fullscreen');
             fullscreen.innerHTML = '<img class="fullImg" src="data/playerButtons/full-size.png">';
             
             exitFullscreen();
@@ -235,7 +225,7 @@ function videoPlayer(player, options, data) {
 
     function exitHandler(){
         if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null){
-                document.querySelector('.player').classList.toggle('player-fullscreen');
+                document.querySelector('.player').classList.toggle('fullscreen');
             }
         }
 

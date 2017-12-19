@@ -102,19 +102,42 @@ function getAllUrlParams(url) {
 
 /* variables */
 var lang = '';
-var filter = '';
+var filter = 'all';
 
-var filters_btn = document.querySelector('.filter-btn');
+var filters_btn = document.querySelectorAll('.filter-btn');
 
-filters_btn.addEventListener('click', function(e){
-    filter = e.getAttribute('data');
+filters_btn.forEach(function(els){
+    els.addEventListener('click', function(e){
+        e.preventDefault();
+        filter = e.srcElement.getAttribute('data');
+        
+        setThumbnails(data.films);
+    });
 });
 
 var movieContainer = document.querySelector('.movieContainer');
 
-data.films.forEach(function(e){
-    movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
-});
+setThumbnails(data.films);
+
+function setThumbnails(element) {
+    movieContainer.innerHTML = '';
+    
+    element.forEach(function(e){
+        if(filter == 'all'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'action' && e.category == 'Action'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'horror' && e.category == 'Horror / Thriller'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'animation' && e.category == 'Animation'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'comedy' && e.category == 'Comedy'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }
+
+        console.log(filter);
+    });
+}
 
 var videos_thumbnails = document.querySelector('.video-thumbnail');
 
