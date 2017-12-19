@@ -75,35 +75,35 @@ function videoPlayer(player, options, data) {
     }
     
     var prev = function(){
-        if(options.songList.indexOf(options.songList[options.index]) != 0){
-            options.index -= 1;
-            this.setSong(options.index);
-            this.stop();
-            
-            if(options.playing === true){
-                this.play();
-            }else{
-                this.stop();
-            }
-        }else if(options.playing === false){
-            this.stop();
-        }
+//        if(options.songList.indexOf(options.songList[options.index]) != 0){
+//            options.index -= 1;
+//            this.setSong(options.index);
+//            this.stop();
+//            
+//            if(options.playing === true){
+//                this.play();
+//            }else{
+//                this.stop();
+//            }
+//        }else if(options.playing === false){
+//            this.stop();
+//        }
     }
     
     var next = function(){
-        if(options.songList.indexOf(options.songList[options.index]) != options.songList.length - 1){
-            options.index += 1;
-            this.setSong(options.index);
-            this.pause();
-            
-            if(options.playing === true){
-                this.play();
-            }else{
-                this.pause();
-            }
-        }else{
-            this.stop();
-        }
+//        if(options.songList.indexOf(options.songList[options.index]) != options.songList.length - 1){
+//            options.index += 1;
+//            this.setSong(options.index);
+//            this.pause();
+//            
+//            if(options.playing === true){
+//                this.play();
+//            }else{
+//                this.pause();
+//            }
+//        }else{
+//            this.stop();
+//        }
     }
     
     var setVolume = function(vol){
@@ -176,17 +176,13 @@ function videoPlayer(player, options, data) {
     });
     
     video.addEventListener("ended", function(){
-        if(parent.options.loop === true && parent.options.songList.indexOf(parent.options.songList[parent.options.index]) == parent.options.songList.length - 1){
-            play();
-        }else{
-            next();
-        }
+        //ended
     });
     
     fullscreen.addEventListener('click', function(e){
         if(parent.isFullscreen){
-            parent.player.classList.remove('fullscreen');
             parent.isFullscreen = false;
+            parent.player.classList.remove('fullscreen');
             e.innerHTML = '<img class="fullImg" src="data/playerButtons/full-size.png">';
         }else{
             parent.isFullscreen = true;

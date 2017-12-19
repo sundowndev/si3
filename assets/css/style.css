@@ -147,4 +147,5 @@ a {
 .imgContainer:hover {
     cursor: pointer;
     transform: scale(1.05);
+    opacity: .7;
 }
