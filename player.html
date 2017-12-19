@@ -15,23 +15,30 @@
         <span class="totalTime">00:00</span>
       </div>
       <div class="timeContainer">
-        <input type="range" class="timeRange" min="0" max="100">
-        <div class="timeLapse"></div>
+        <div class="timePosition">
+          <input type="range" class="timeRange" min="0" max="100">
+          <div class="timeLapse"></div>
+        </div>
       </div>
       <div class="controls">
         <div class="left">
-          <a class="volButton"><img class="volImg" src="data/playerButtons/speaker.png"><input class="volTrack" type="range"></a>
+          <a class="volButton"><img class="volImg" src="assets/img/playerButtons/speaker.png"><input class="volTrack" type="range"></a>
         </div>
         <div class="center">
-          <a class="playButton"><img class="playImg" src="data/playerButtons/play-arrow.png"></a>
+          <a class="playButton"><img class="playImg" src="assets/img/playerButtons/play-arrow.png"></a>
         </div>
         <div class="right">
-          <a class="fullscreenButton"><img class="fullImg" src="data/playerButtons/FullScreen.png"><img class="noFullscreen" src="data/playerButtons/ExitFullScreen.png"></a>
+          <a class="fullscreenButton"><img class="fullImg" src="assets/img/playerButtons/FullScreen.png"><</a>
         </div>
       </div>
 
     </div>
-    <video src="./data/videos/Dragon+Ball+vs+Naruto.+Anime+fight.(720p).mp4" id="videoPlayer"></video>
+    <div class="videoContainer">
+      <div class="return">
+        <a><img class="returnImg" src="assets/img/playerButtons/back-arrow.png" alt=""></a>
+      </div>
+      <video src="./data/videos/Dragon+Ball+vs+Naruto.+Anime+fight.(720p).mp4" id="videoPlayer"></video>
+    </div>
   </div>
 
   <script src="assets/js/data.js"></script>
