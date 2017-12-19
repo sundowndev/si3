@@ -50,11 +50,13 @@ video {
 
 .timeContainer {
   display: flex;
+  flex-direction: column;
 }
 
 .time {
   height: 40%;
   width: 80%;
+  z-index: 1000;
 }
 
 input[type=range] {
@@ -93,7 +95,18 @@ input[type=range]::-webkit-slider-thumb {
   height: 16px;
   width: 16px;
   border-radius: 100%;
-  background: #64E6C4;
+  background: #fff;
+  cursor: pointer;
+  margin-top: -5px;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+input[type=range].volTrack::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  background: #fff;
   cursor: pointer;
   margin-top: -6px;
   /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
@@ -105,7 +118,7 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 100%;
-  background: #64E6C4;
+  background: #fff;
   cursor: pointer;
 }
 
@@ -115,7 +128,7 @@ input[type=range]::-ms-thumb {
   height: 16px;
   width: 16px;
   border-radius: 100%;
-  background: #64E6C4;
+  background: #fff;
   cursor: pointer;
 }
 
@@ -125,16 +138,26 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 4px;
   cursor: pointer;
-  background: #64E6C4;
+  background: #fff;
   border-radius: 1.3px;
   margin-left: 23.5%;
+}
+
+input[type=range].volTrack::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 1.3px;
+  margin-left: 18%;
+  margin-bottom: 8px;
 }
 
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 4px;
   cursor: pointer;
-  background: transparent;
+  background: #fff;
   border-radius: 1.3px;
   margin-left: 70px;
 }
@@ -143,29 +166,21 @@ input[type=range]::-ms-track {
   width: 100%;
   height: 4px;
   cursor: pointer;
-  background: transparent;
+  background: #fff;
   border-color: transparent;
   color: transparent;
   margin-left: 100px;
 }
 
-/*style track upper/lower*/
-
-input[type=range]::-ms-fill-lower {
-  background: yellow;
-}
-
-input[type=range]:focus::-ms-fill-lower {
-  background: yellow;
-}
-
-input[type=range]::-ms-fill-upper {
-  background: #367ebd;
-  border-radius: 2.6px;
-}
-
-input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
+.timeLapse {
+  width: 61.1%;
+  height: 4px;
+  margin: auto;
+  margin-right: 162px;
+  border-radius: 1.3px;
+  position: relative;
+  background-color: #64E6C4;
+  bottom: 6px;
 }
 
 .controls {
@@ -196,10 +211,12 @@ input[type=range]:focus::-ms-fill-upper {
 .playImg {
   width: 30px;
   height: auto;
+  margin-left: -180%;
 }
 
 .pauseImg {
-  display: none;
+  width: 30px;
+  height: auto;
 }
 
 .fullscreenButton {
