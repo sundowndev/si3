@@ -93,26 +93,60 @@ function getAllUrlParams(url) {
 }
 
 /* initialisation du player video */
-var video = new videoPlayer('.player', {
-    // Parameters
-    autoplay: false,
-    loop: false,
-    defaultVolume: 60
-}, data.films);
+//var video = new videoPlayer('.player', {
+//    // Parameters
+//    autoplay: false,
+//    loop: false,
+//    defaultVolume: 60
+//}, data.films);
 
 /* variables */
 var lang = '';
-var filter = '';
+var filter = 'all';
 
-filters_btn = document.querySelector('.filter-btn');
+var filters_btn = document.querySelectorAll('.filter-btn');
 
-filters_btn.addEventListener(function(e){
-    filter = e.getAttribute('data');
+filters_btn.forEach(function(els){
+    els.addEventListener('click', function(e){
+        var length = filters_btn.length;
+		for (var i = 0; i < length; i++) {
+               filters_btn[i].classList.remove('active');
+		}
+        e.preventDefault();
+        filter = els.getAttribute('data');
+        els.classList.add('active');
+        
+        setThumbnails(data.films);
+    });
 });
 
-videos_thumbnails = document.querySelector('.video-thumbnail');
+var movieContainer = document.querySelector('.movieContainer');
 
-videos_thumbnails.addEventListener(function(e){
+setThumbnails(data.films);
+
+function setThumbnails(element) {
+    movieContainer.innerHTML = '';
+    
+    element.forEach(function(e){
+        if(filter == 'all'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'action' && e.category == 'Action'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'horror' && e.category == 'Horror / Thriller'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'animation' && e.category == 'Animation'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }else if(filter == 'comedy' && e.category == 'Comedy'){
+            movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        }
+
+        console.log(filter);
+    });
+}
+
+var videos_thumbnails = document.querySelector('.video-thumbnail');
+
+videos_thumbnails.addEventListener('click', function(e){
     video = e.getAttribute('data');
 });
         
