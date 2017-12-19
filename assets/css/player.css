@@ -21,6 +21,10 @@ video {
   /*mettre ratio 16:9*/
 }
 
+.player button {
+    outline: none;
+}
+
 .bottomPlayer {
   width: 65%;
   position: absolute;
@@ -217,7 +221,6 @@ input[type=range]::-ms-track {
 .playImg {
   width: 30px;
   height: auto;
-  margin-left: -180%;
 }
 
 .pauseImg {

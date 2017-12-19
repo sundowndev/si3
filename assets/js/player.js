@@ -60,12 +60,12 @@ function videoPlayer(player, options, data) {
     
     var play = function(){
         video.play();
-        pButton.innerHTML = '&#9612;&#9612;';
+        pButton.innerHTML = '<img class="pauseImg" src="data/playerButtons/pause-button.png">';
     }
     
     var pause = function(){
         video.pause();
-        pButton.innerHTML = '&#9654;';
+        pButton.innerHTML = '<img class="playImg" src="data/playerButtons/play-arrow.png">';
     }
     
     this.stop = function(){
@@ -183,13 +183,15 @@ function videoPlayer(player, options, data) {
         }
     });
     
-    fullscreen.addEventListener('click', function(){
+    fullscreen.addEventListener('click', function(e){
         if(parent.isFullscreen){
             parent.player.classList.remove('fullscreen');
             parent.isFullscreen = false;
+            e.innerHTML = '<img class="fullImg" src="data/playerButtons/full-size.png">';
         }else{
             parent.isFullscreen = true;
             parent.player.classList.add('fullscreen');
+            e.innerHTML = '<img class="noFullscreen" src="data/playerButtons/" alt="">';
         }
         
         toggleFullScreen();
