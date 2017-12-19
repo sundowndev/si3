@@ -1,144 +1,245 @@
-    .player {
-      width: 500px;
-/*      height: 100%;*/
-      position: relative;
-    }
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url(../../font/Roboto-Light.ttf);
+}
 
-    .player.fullscreen {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
+.player {
+  width: 500px;
+  /*      height: 100%;*/
+  position: relative;
+}
 
-    video {
-      width: 100%;
-      height: auto;
-      max-height: 100vh;
-      /*mettre ratio 16:9*/
-    }
+.player.fullscreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
-    .bottomPlayer {
-      width: 45%;
-      height: 10%;
-      position: absolute;
-      bottom: 50px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      z-index: 100;
-      background-color: grey;
-    }
+video {
+  width: 100%;
+  height: auto;
+  /*mettre ratio 16:9*/
+}
 
-    .time {
-      background-color: blue;
-      width: 100px;
-      height: 20px;
-    }
+.player button {
+    outline: none;
+}
 
-    input[type=range] {
-      -webkit-appearance: none;
-      /* Hides the slider so that custom slider can be made */
-      width: 100%;
-      /* Specific width is required for Firefox. */
-      background: transparent;
-      /* Otherwise white in Chrome */
-    }
+.bottomPlayer {
+  width: 65%;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+  background-color: #000;
+  opacity: 0.6;
+  padding-bottom: 1em;
+  border-radius: 4px;
+}
 
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-    }
+.timer {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto-Light';
+  font-size: 1rem;
+  color: #fff;
+  width: 70%;
+  margin: auto;
+}
 
-    input[type=range]:focus {
-      outline: none;
-      /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-    }
+.currentTime {
+  padding-top: 1.5em;
+}
 
-    input[type=range]::-ms-track {
-      width: 100%;
-      cursor: pointer;
-      /* Hides the slider so custom styles can be added */
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
+.totalTime {
+  padding-top: 1.5em;
+  padding-bottom: 0.5em;
+}
 
-    /*thumb style*/
+.timeContainer {
+  display: flex;
+  flex-direction: column;
+}
 
-    /* Special styling for WebKit/Blink */
+.timeRange {
+  height: 40%;
+  width: 80%;
+  z-index: 1000;
+}
 
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 16px;
-      width: 16px;
-      border-radius: 100%;
-      background: #64E6C4;
-      cursor: pointer;
-      margin-top: -6px;
-      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    }
+input[type=range] {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 80%;
+  /* Specific width is required for Firefox. */
+  background: transparent;
+  /* Otherwise white in Chrome */
+}
 
-    /* All the same stuff for Firefox */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
 
-    input[type=range]::-moz-range-thumb {
-      height: 16px;
-      width: 16px;
-      border-radius: 100%;
-      background: #64E6C4;
-      cursor: pointer;
-    }
+input[type=range]:focus {
+  outline: none;
+  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
 
-    /* All the same stuff for IE */
+input[type=range]::-ms-track {
+  width: 80%;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
 
-    input[type=range]::-ms-thumb {
-      height: 16px;
-      width: 16px;
-      border-radius: 100%;
-      background: #64E6C4;
-      cursor: pointer;
-    }
+/*thumb style*/
 
-    /*track style*/
+/* Special styling for WebKit/Blink */
 
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 4px;
-      cursor: pointer;
-      background: red;
-      border-radius: 1.3px;
-    }
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  background: #fff;
+  cursor: pointer;
+  margin-top: -5px;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
 
-    input[type=range]::-moz-range-track {
-      width: 100%;
-      height: 4px;
-      cursor: pointer;
-      background: transparent;
-      border-radius: 1.3px;
-    }
+input[type=range].volTrack::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  background: #fff;
+  cursor: pointer;
+  margin-top: -6px;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
 
-    input[type=range]::-ms-track {
-      width: 100%;
-      height: 4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
+/* All the same stuff for Firefox */
 
-    /*style track upper/lower*/
+input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  background: #fff;
+  cursor: pointer;
+}
 
-    input[type=range]::-ms-fill-lower {
-      background: yellow;
-    }
+/* All the same stuff for IE */
 
-    input[type=range]:focus::-ms-fill-lower {
-      background: yellow;
-    }
+input[type=range]::-ms-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  background: #fff;
+  cursor: pointer;
+}
 
-    input[type=range]::-ms-fill-upper {
-      background: #367ebd;
-      border-radius: 2.6px;
-    }
+/*track style*/
 
-    input[type=range]:focus::-ms-fill-upper {
-      background: #367ebd;
-    }
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 1.3px;
+  margin-left: 23.5%;
+}
+
+input[type=range].volTrack::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 1.3px;
+  margin-left: 18%;
+  margin-bottom: 8px;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 1.3px;
+  margin-left: 70px;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: #fff;
+  border-color: transparent;
+  color: transparent;
+  margin-left: 100px;
+}
+
+.timeLapse {
+  width: 61.1%;
+  height: 4px;
+  margin: auto;
+  margin-right: 162px;
+  border-radius: 1.3px;
+  position: relative;
+  background-color: #64E6C4;
+  bottom: 6px;
+}
+
+.controls {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.volButton {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.volImg {
+  width: 20px;
+  height: auto;
+}
+
+.playButton {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.playImg {
+  width: 30px;
+  height: auto;
+}
+
+.pauseImg {
+  width: 30px;
+  height: auto;
+}
+
+.fullscreenButton {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.fullImg {
+  width: 20px;
+  height: auto;
+}
+
+.noFullscreen {
+  width: 20px;
+  height: auto;
+}
