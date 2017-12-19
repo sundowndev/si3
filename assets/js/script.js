@@ -108,8 +108,13 @@ var filters_btn = document.querySelectorAll('.filter-btn');
 
 filters_btn.forEach(function(els){
     els.addEventListener('click', function(e){
+        var length = filters_btn.length;
+		for (var i = 0; i < length; i++) {
+               filters_btn[i].classList.remove('active');
+		}
         e.preventDefault();
-        filter = e.srcElement.getAttribute('data');
+        filter = els.getAttribute('data');
+        els.classList.add('active');
         
         setThumbnails(data.films);
     });
