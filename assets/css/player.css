@@ -235,3 +235,8 @@ input[type=range]::-ms-track {
   width: 20px;
   height: auto;
 }
+
+.noFullscreen {
+  width: 20px;
+  height: auto;
+}
