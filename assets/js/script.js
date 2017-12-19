@@ -93,26 +93,32 @@ function getAllUrlParams(url) {
 }
 
 /* initialisation du player video */
-var video = new videoPlayer('.player', {
-    // Parameters
-    autoplay: false,
-    loop: false,
-    defaultVolume: 60
-}, data.films);
+//var video = new videoPlayer('.player', {
+//    // Parameters
+//    autoplay: false,
+//    loop: false,
+//    defaultVolume: 60
+//}, data.films);
 
 /* variables */
 var lang = '';
 var filter = '';
 
-filters_btn = document.querySelector('.filter-btn');
+var filters_btn = document.querySelector('.filter-btn');
 
-filters_btn.addEventListener(function(e){
+filters_btn.addEventListener('click', function(e){
     filter = e.getAttribute('data');
 });
 
-videos_thumbnails = document.querySelector('.video-thumbnail');
+var movieContainer = document.querySelector('.movieContainer');
 
-videos_thumbnails.addEventListener(function(e){
+data.films.forEach(function(e){
+    movieContainer.innerHTML += '<div class="imgContainer video-thumbnail" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+});
+
+var videos_thumbnails = document.querySelector('.video-thumbnail');
+
+videos_thumbnails.addEventListener('click', function(e){
     video = e.getAttribute('data');
 });
         

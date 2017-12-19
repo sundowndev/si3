@@ -52,7 +52,7 @@ a {
 
 .icon {
     color: #fff;
-    font-size: 42px;
+    font-size: 32px;
 }
 
 .langChoice {
@@ -65,7 +65,7 @@ a {
 
 .topContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-top: 142px;
 }
@@ -127,29 +127,47 @@ a {
 
 .movieContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 85px;
     margin-bottom: 155px;
 }
 
 .imgContainer {
+    justify-content: center;
+    display: flex;
     width: 202px;
     height: 343px;
     margin-top: 30px;
     background-color: #fff;
     overflow: hidden;
-    background: url('http://127.0.0.1/semaine-intensive3/data/thumbnails/3M9q8W.png') no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     transition: .4s ease-in-out;
 }
 
+.imgContainer span {
+    padding: 5px;
+    line-height: 1.5em;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    margin: auto;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    transition: .4s;
+    transform: translateY(343px);
+}
+
 .imgContainer:hover {
     cursor: pointer;
-    transform: scale(1.05);
-    opacity: .7;
+    transform: scale(1.04);
 }
+
+.imgContainer:hover span {
+    transform: translateY(0);
+}
+
 .footerContainer {
     display: flex;
     width: 100%;
