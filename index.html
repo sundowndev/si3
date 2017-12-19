@@ -1,9 +1,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <title>site de streaming</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/reset.css">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   </head>
 
   <body>
@@ -11,12 +17,15 @@
       <div class="container">
           <header>
               <div class="header">
-                  <h1 class="logo1">Independant <span class="logo2">Movie</span></h1>
+                  <h1 class="logo1"><a href="index.html">Indie<span class="logo2">Movies</span></a></h1>
                   <div class="mainNav">
                       <input class="searchBar" type="text" placeholder="Recherche...">
-                      <img class="connectImg" src="assets/img/seconnecter.png"></img>
-                      <img class="dlImg" src="assets/img/dl.png"></img>
-                      <p class="langChoice">fr</p>
+                      
+                      <a href="#"><i class="icon ion-person"></i></a>
+                      
+                      <a href="#"><i class="icon ion-ios-cloud-upload"></i></a>
+                      
+                      <p class="langChoice"><a href="?lang=fr">fr</a></p>
                   </div>
               </div>
           </header>
@@ -43,11 +52,11 @@
               <!-- Filtres -->
               <div class="itemContainer">
                   <ul class="listItem">
-                      <li class="items">Tous</li>
-                      <li class="items">Action</li>
-                      <li class="items">Horreur</li>
-                      <li class="items">Animation</li>
-                      <li class="items">Comédie</li>
+                      <li class="items"><a href="#" class="filter-btn" data="all">Tous</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="action">Action</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="horreur">Horreur</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="animation">Animation</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="comedy">Comédie</a></li>
                   </ul>
               </div>
 

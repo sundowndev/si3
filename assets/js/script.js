@@ -59,6 +59,7 @@ function getAllUrlParams(url) {
   return obj;
 }
 
+/* initialisation du player video */
 var video = new videoPlayer('.player', {
     // Parameters
     autoplay: false,
@@ -66,12 +67,27 @@ var video = new videoPlayer('.player', {
     defaultVolume: 60
 }, data.films);
 
+/* variables */
+var lang = '';
 var filter = '';
+
 filters_btn = document.querySelector('.filter-btn');
 
 filters_btn.addEventListener(function(e){
     filter = e.getAttribute('data');
 });
+
+videos_thumbnails = document.querySelector('.video-thumbnail');
+
+videos_thumbnails.addEventListener(function(e){
+    video = e.getAttribute('data');
+});
         
+/* on definie la langue */
+if(getAllUrlParams().lang == 'en'){
+    lang = 'en'
+}else{
+    lang = 'fr'
+}
+
 //video.set('a5dMxYp');
-//getAllUrlParams().search
