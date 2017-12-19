@@ -1,4 +1,30 @@
+function toggleFullScreen() {
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (document.documentElement.requestFullScreen) {  
+      document.documentElement.requestFullScreen();  
+    } else if (document.documentElement.mozRequestFullScreen) {  
+      document.documentElement.mozRequestFullScreen();  
+    } else if (document.documentElement.webkitRequestFullScreen) {  
+      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+    }
+      
+    return true;
+  } else { 
+    if (document.cancelFullScreen) {  
+      document.cancelFullScreen();  
+    } else if (document.mozCancelFullScreen) {  
+      document.mozCancelFullScreen();  
+    } else if (document.webkitCancelFullScreen) {  
+      document.webkitCancelFullScreen();  
+    }
+      
+    return false;
+  }  
+}
+
 function videoPlayer(player, options, data) {
+    var parent = this;
     this.player = document.querySelector(player);
     this.options = options;
     
@@ -7,54 +33,20 @@ function videoPlayer(player, options, data) {
     this.options.current_timeline = '00:00';
     this.options.timeline = '00:00';
     this.options.playing = false;
+    this.options.isFullscreen = false;
     
     /* Init the player */
     /* Play button */
     var pButton = document.querySelector('.playButton');
     
     /* Timeline */
-    var timeline = document.querySelector('.time');
+    var timeline = document.querySelector('.timeRange');
     
     /* timer element */
-    var timer = document.querySelector('div');
+    var timer = document.querySelector('.timer');
     
-    //this.player.innerHTML = '<div></div>';
-//    var videoTag = document.createElement('video');
-//    this.player.appendChild(videoTag);
-//    videoTag.preload = 'auto';
-//    
-//    var mainDiv = document.createElement('div');
-//    mainDiv.classList.add('mainDiv');
-//    this.player.appendChild(mainDiv);
-//    
-//    /* Play button */
-//    var pButton = document.createElement('button');
-//    pButton.classList.add('pButton');
-//    mainDiv.appendChild(pButton);
-//    pButton.innerHTML = 'play';
-//    
-//    /* Timeline element */
-//    var timeline = document.createElement('div');
-//    timeline.classList.add('timeline');
-//    mainDiv.appendChild(timeline);
-//    
-//    var progress = document.createElement('div');
-//    progress.classList.add('progress');
-//    timeline.appendChild(progress);
-//    
-//    var loaded = document.createElement('div');
-//    loaded.classList.add('loaded');
-//    timeline.appendChild(loaded);
-//    
-//    /* Song duration element */
-//    var timer = document.createElement('div');
-//    timer.classList.add('timer');
-//    mainDiv.appendChild(timer);
-//    
-//    /* Volume control element */
-//    var volumeControl = document.createElement('div');
-//    volumeControl.classList.add('volumeControl');
-//    this.player.appendChild(volumeControl);
+    /* fullscreen button */
+    var fullscreen = document.querySelector('.fullscreenButton');
     
     /* Create the audio object */
     var video = document.querySelector('#videoPlayer');
@@ -68,12 +60,12 @@ function videoPlayer(player, options, data) {
     
     var play = function(){
         video.play();
-        pButton.innerHTML = '&#9208;';
+        pButton.innerHTML = '&#9612;&#9612;';
     }
     
     var pause = function(){
         video.pause();
-        pButton.innerHTML = '&#9658;';
+        pButton.innerHTML = '&#9654;';
     }
     
     this.stop = function(){
@@ -118,14 +110,14 @@ function videoPlayer(player, options, data) {
         video.volume = vol * 0.01; // round 100 to 1
     }
     
-    var getCurrentTimerPourcentage = function(){
-        //audio.currentTime/audio.duration
-        //timeline.style.width = '40%';
+    var getCurrentTimerPourcentage = function(currentTime){
+        pourcentage = currentTime*100/video.duration;
+        
+        return pourcentage;
     }
     
-    var getCurrentTimerSec = function(){
-        //audio.currentTime/audio.duration
-        timeline.style.width = '40%';
+    var getCurrentTimerSec = function(pourcentage){
+        video.currentTime = pourcentage*video.duration/100;
     }
     
     var setDuration = function(duration){
@@ -137,16 +129,17 @@ function videoPlayer(player, options, data) {
     var setCurrentTimer = function(currentTime){
         var minutes = "0" + Math.floor(currentTime / 60);
         var seconds = "0" + (Math.floor(currentTime) - minutes * 60);
-        options.current_timeline = minutes.substr(-2) + ":" + seconds.substr(-2);
+        parent.options.current_timeline = minutes.substr(-2) + ":" + seconds.substr(-2);
     }
     
     var refreshTimer = function(){
         setCurrentTimer(video.currentTime);
         
-        //timer.innerHTML = '<span class="played">'+this.options.current_timeline+'</span> / <strong class="duration">'+this.options.timeline+'</strong>';
+        timer.innerHTML = '<span class="currentTime">'+parent.options.current_timeline+'</span><span class="totalTime">'+parent.options.timeline+'</span>';
+        
+        timeline.value = getCurrentTimerPourcentage(video.currentTime);
     }
     
-    //this.setSong(this.options.index);
     setVolume(this.options.defaultVolume);
     
     video.addEventListener('canplay', function() {
@@ -170,10 +163,8 @@ function videoPlayer(player, options, data) {
         }
     });
     
-    timeline.addEventListener('click', function(){
-        //mettre à jour progress bar en fonction du clic
-        //maj le timer
-        //console.log('test1');
+    timeline.addEventListener('click', function(e){
+        getCurrentTimerSec(e.toElement.value);
     });
     
     video.addEventListener("playing", function(){
@@ -185,10 +176,40 @@ function videoPlayer(player, options, data) {
     });
     
     video.addEventListener("ended", function(){
-        if(options.loop === true && options.songList.indexOf(options.songList[options.index]) == options.songList.length - 1){
+        if(parent.options.loop === true && parent.options.songList.indexOf(parent.options.songList[parent.options.index]) == parent.options.songList.length - 1){
             play();
         }else{
             next();
+        }
+    });
+    
+    fullscreen.addEventListener('click', function(){
+        if(parent.isFullscreen){
+            parent.player.classList.remove('fullscreen');
+            parent.isFullscreen = false;
+        }else{
+            parent.isFullscreen = true;
+            parent.player.classList.add('fullscreen');
+        }
+        
+        toggleFullScreen();
+    });
+    
+    document.addEventListener('keydown', function(e){
+        /* if key is space bar */
+        if(e.keyCode == 32){
+            if(parent.options.playing === false){
+                play();
+                parent.options.playing = true;
+            }else{
+                pause();
+                parent.options.playing = false;
+            }
+        }
+        
+        if(e.keyCode == 27 && parent.isFullscreen){
+            parent.player.classList.remove('fullscreen');
+            parent.isFullscreen = false;
         }
     });
 }

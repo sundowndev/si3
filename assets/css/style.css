@@ -1,0 +1,140 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #212025;
+}
+
+.container {
+  width: 1138px;
+  margin: auto;
+}
+
+a {
+    color: unset;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 86px;
+  justify-content: space-between;
+}
+
+.logo1 {
+    color: #e8335c;
+    font-size: 36px;
+    font-weight: bold;
+    width: 50%;
+    text-transform: uppercase;
+}
+
+.logo2 {
+    color: #64e6c4;
+    font-weight: 300;
+}
+
+.mainNav {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    align-items: center;
+}
+
+.searchBar {
+    background-color: #212025;
+    color: #fff;
+    border: none;
+    height: 20px;
+    margin-right: 60px;
+    outline: none;
+}
+
+.icon {
+    color: #fff;
+    font-size: 42px;
+}
+
+.langChoice {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+/* LANDING ZONE */
+
+.topContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 142px;
+}
+
+.imgTitle {
+    width: 335px;
+    height: 318px;
+}
+
+.textTitle {
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 318px;
+}
+
+.--news {
+    background-image: url("../img/Nouveautés.png");
+}
+
+.--top10 {
+    background-image: url("../img/top10.png");
+}
+
+.--coupdecoeur {
+    background-image: url("../img/Coup de coeur.png");
+}
+
+.greenBar {
+    width: 450px;
+    height: 5px;
+    float: right;
+    background-color: #64e6c4;
+    margin-top: 35px;
+}
+
+/* FILTRES */
+
+.itemContainer {
+  margin-top: 192px;
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 500px;
+}
+
+.items {
+    color: #9a9a9a;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* AFFICHES DES FILMS */
+
+.movieContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 85px;
+}
+
+.imgContainer {
+    width: 202px;
+    height: 343px;
+    margin-top: 30px;
+    background-color: #fff;
+}
