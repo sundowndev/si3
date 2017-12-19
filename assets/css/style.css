@@ -137,4 +137,15 @@ a {
     height: 343px;
     margin-top: 30px;
     background-color: #fff;
+    overflow: hidden;
+    background: url('http://127.0.0.1/semaine-intensive3/data/thumbnails/3M9q8W.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: .4s ease-in-out;
+}
+
+.imgContainer:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: .7;
 }

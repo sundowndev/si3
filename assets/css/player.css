@@ -21,6 +21,10 @@ video {
   /*mettre ratio 16:9*/
 }
 
+.player button {
+    outline: none;
+}
+
 .bottomPlayer {
   width: 65%;
   position: absolute;
@@ -41,17 +45,17 @@ video {
   font-family: 'Roboto-Light';
   font-size: 1rem;
   color: #fff;
+  width: 70%;
+  margin: auto;
 }
 
 .currentTime {
   padding-top: 1.5em;
-  padding-left: 9.5em;
 }
 
 .totalTime {
   padding-top: 1.5em;
   padding-bottom: 0.5em;
-  padding-right: 10em;
 }
 
 .timeContainer {
@@ -217,7 +221,6 @@ input[type=range]::-ms-track {
 .playImg {
   width: 30px;
   height: auto;
-  margin-left: -180%;
 }
 
 .pauseImg {
