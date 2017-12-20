@@ -18,6 +18,9 @@ function videoPlayer(player, options, data) {
     /* Timeline */
     var timeline = document.querySelector('.timeRange');
     
+    /* Timelapse element */
+    var timelapsed = document.querySelector('.timeLapse');
+    
     /* timer element */
     var timer = document.querySelector('.timer');
     
@@ -39,12 +42,12 @@ function videoPlayer(player, options, data) {
     
     this.play = function(){
         video.play();
-        pButton.innerHTML = '<img class="pauseImg" src="data/playerButtons/pause-button.png">';
+        pButton.innerHTML = '<img class="pauseImg" src="./assets/img/playerButtons/pause-button.png">';
     }
     
     this.pause = function(){
         video.pause();
-        pButton.innerHTML = '<img class="playImg" src="data/playerButtons/play-arrow.png">';
+        pButton.innerHTML = '<img class="playImg" src="./assets/img/playerButtons/play-arrow.png">';
     }
     
     this.stop = function(){
@@ -92,7 +95,11 @@ function videoPlayer(player, options, data) {
         
         timer.innerHTML = '<span class="currentTime">'+parent.options.current_timeline+'</span><span class="totalTime">'+parent.options.timeline+'</span>';
         
-        timeline.value = getCurrentTimerPourcentage(video.currentTime);
+        val = getCurrentTimerPourcentage(video.currentTime);
+        
+        timeline.value = val;
+        
+        timelapsed.style.width = val+'%';
     }
     
     this.setVolume(this.options.defaultVolume);
@@ -148,10 +155,10 @@ function videoPlayer(player, options, data) {
         /* if key is space bar */
         if(e.keyCode == 32){ // e correspond à l'élément de l'événement, ici keydown. keyCode est le code de la touche pressée (32 = espace)
             if(parent.options.playing === false){
-                play();
+                parent.play();
                 parent.options.playing = true;
             }else{
-                pause();
+                parent.pause();
                 parent.options.playing = false;
             }
         }
@@ -167,15 +174,9 @@ function videoPlayer(player, options, data) {
 
     function launchFullscreen(){
         if(parent.options.isFullscreen == false){
-            fullscreen.innerHTML = '<img class="noFullscreen" src="./assets/img/playerButtons/ExitFullScreen.png">';
-            
             launchIntoFullscreen();
-            parent.options.isFullscreen = true;
         } else if (parent.options.isFullscreen == true){
-            fullscreen.innerHTML = '<img class="fullImg" src="./assets/img/playerButtons/full-size.png">';
-            
             exitFullscreen();
-            parent.options.isFullscreen = false;
         }
     }
 
@@ -189,6 +190,14 @@ function videoPlayer(player, options, data) {
     function exitHandler(){
         if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null){
                 document.querySelector('.player').classList.toggle('fullscreen');
+            }
+        
+            if(parent.options.isFullscreen == false){
+                fullscreen.innerHTML = '<img class="noFullscreen" src="./assets/img/playerButtons/ExitFullScreen.png">';
+                parent.options.isFullscreen = true;
+            } else if (parent.options.isFullscreen == true){
+                fullscreen.innerHTML = '<img class="fullImg" src="./assets/img/playerButtons/full-size.png">';
+                parent.options.isFullscreen = false;
             }
         }
 

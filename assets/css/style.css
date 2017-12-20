@@ -344,6 +344,11 @@ a {
   right: 30px;
   font-size: 18px;
   color: rgba(29, 29, 29, 0.5);
+  transition: .4s;
+}
+
+.closeModal:hover {
+  color: rgba(29, 29, 29, 0.3);
 }
 
 .playModal {
@@ -423,16 +428,16 @@ a {
 }
 
 .markUser {
-  width: 20px;
-  height: 20px;
-  border: 2px solid grey;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgb(232, 51, 92);
   border-radius: 2px;
   cursor: pointer;
   transition: .2s;
 }
 
-.markUser:hover {
-  background: grey;
+.markUser.active{
+  background: rgb(232, 51, 92);
 }
 
 .dataMark {

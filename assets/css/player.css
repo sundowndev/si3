@@ -61,6 +61,10 @@ video {
   border-radius: 4px;
 }
 
+.player.fullscreen .bottomPlayer{
+    bottom: 10%;
+}
+
 .timer {
   display: flex;
   justify-content: space-between;
@@ -216,8 +220,9 @@ input[type=range]::-ms-track {
   height: 4px;
   border-radius: 1.3px;
   position: relative;
-  background-color: #64E6C4;
+  background-color: #0cecc2;
   bottom: 6px;
+  margin-left: 2px;
 }
 
 .controls {
@@ -255,6 +260,7 @@ input[type=range]::-ms-track {
 .volImg {
   width: 20px;
   height: auto;
+  margin-right: 8px;
 }
 
 .playButton {
