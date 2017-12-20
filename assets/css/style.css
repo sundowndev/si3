@@ -1,3 +1,38 @@
+@font-face {
+  font-family: 'Roboto-Black';
+  src: url(Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Robot-Bold';
+  src: url(Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url(Roboto-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-LightItalic';
+  src: url(Roboto-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url(Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-MediumItalic';
+  src: url(Roboto-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url(Roboto-Thin.ttf);
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #212025;
@@ -32,6 +67,7 @@ a {
 
 .logo1 {
   color: #e8335c;
+  font-family: 'Roboto-Black';
   font-size: 36px;
   font-weight: bold;
   width: 50%;
@@ -39,6 +75,7 @@ a {
 }
 
 .logo2 {
+  font-family: 'Roboto-LightItalic';
   color: #64e6c4;
   font-weight: 300;
 }
@@ -51,21 +88,28 @@ a {
 }
 
 .searchBar {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    height: 20px;
-    margin-right: 60px;
-    outline: none;
+  background-color: #212025;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  height: 20px;
+  margin-right: 60px;
+  outline: none;
+}
+
+.searchBar::-webkit-input-placeholder {
+  font-family: 'Roboto-ThinItalic';
 }
 
 .icon {
   color: #fff;
-  font-size: 32px;
+  font-size: 20px;
 }
 
 .langChoice {
   color: #fff;
+  font-family: 'Roboto-Thin';
   text-transform: uppercase;
 }
 
@@ -84,7 +128,8 @@ a {
 }
 
 .textTitle {
-  font-size: 30px;
+  font-size: 2.5rem;
+  font-family: 'Roboto-Light';
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -104,14 +149,6 @@ a {
   background-image: url("../img/coupdecoeur.png");
 }
 
-.greenBar {
-  width: 450px;
-  height: 5px;
-  float: right;
-  background-color: #64e6c4;
-  margin-top: 35px;
-}
-
 /* FILTRES */
 
 .itemContainer {
@@ -123,10 +160,13 @@ a {
   justify-content: space-around;
   margin: 0 auto;
   width: 500px;
+  padding-top: 50px;
+  border-top: 2px solid #64e6c4;
 }
 
 .items {
   color: #9a9a9a;
+  font-family: 'Roboto-Light';
   font-size: 18px;
   text-transform: uppercase;
 }
@@ -136,6 +176,7 @@ a {
 }
 
 .items .filter-btn.active {
+  font-family: 'Roboto-Medium';
   font-weight: 700;
   color: #fff;
 }
@@ -234,16 +275,17 @@ a {
 }
 
 .footerTitle {
-  font-size: 15px;
+  font-family: 'Roboto-Medium';
+  font-size: 16px;
   line-height: 18px;
-  font-weight: bold;
   margin-bottom: 15px;
 }
 
 .footerTextLink {
+  font-family: 'Roboto-Light';
   width: 120px;
-  font-size: 10px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 1.5rem;
 }
 
 .imgFooter {
