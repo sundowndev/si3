@@ -403,15 +403,14 @@ strong {
 }
 
 .don {
-  color: #fff;
-  font-size: 18px;
-  background: #e8335c;
-  border: 1px solid #e8335c;
-  padding: 8px;
-  width: 18%;
-  text-align: center;
-  height: fit-content;
-  transition: .4s;
+    color: #fff;
+    font-size: 14px;
+    background: #e8335c;
+    border: 1px solid #e8335c;
+    padding: 8px;
+    text-align: center;
+    height: fit-content;
+    transition: .4s;
 }
 
 .don:hover {
@@ -451,16 +450,10 @@ strong {
 }
 
 .markUser {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgb(232, 51, 92);
-  border-radius: 2px;
+  font-size: 32px;
+  color: rgb(232, 51, 92);
   cursor: pointer;
   transition: .2s;
-}
-
-.markUser.active {
-  background: rgb(232, 51, 92);
 }
 
 .dataMark {

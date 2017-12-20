@@ -177,7 +177,7 @@ async function setThumbnails(element) {
     movieContainer.innerHTML = '';
     
     element.forEach(function(e){
-        var html = '<div class="imgContainer video-thumbnail hidden" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><div class="overlay"><span>'+e.title+'</span></div></div>';
+        var html = '<div class="imgContainer video-thumbnail hidden" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><div class="overlay" data="'+e.id+'"><span data="'+e.id+'">'+e.title+'</span></div></div>';
         
         if(filter == 'all'){
             movieContainer.innerHTML += html;
@@ -204,8 +204,7 @@ async function setThumbnails(element) {
         
     videos_thumbnails.forEach(function(els){
         els.addEventListener('click', function(e){
-            videoID = e.path[1].getAttribute('data');
-            openModal(videoID);
+            openModal(e.srcElement.getAttribute('data'));
         });
     });
 }
@@ -218,7 +217,7 @@ async function setThumbnails(element) {
 //}
 
 /* Open modal */
-async function openModal(videoID){
+async function openModal(id){
     document.body.style.overflow = 'hidden';
     modal.style.display = 'initial';
     
@@ -233,34 +232,30 @@ async function openModal(videoID){
     var video = {};
     
     data.films.forEach(function(el){
-        if(el.id == videoID){
+        if(el.id == id){
             video = el;
-            return el;
         }
     });
     
-    film = {
-        title: document.querySelector('.filmTitle'),
-        time: document.querySelector('.filmTime'),
-        don: document.querySelector('.don'),
-        type: document.querySelector('.filmType'),
-        authorText: document.querySelector('.filmAuthorText'),
-        author: document.querySelector('.filmAuthor'),
-        year: document.querySelector('.filmYear'),
-        desc: document.querySelector('.filmDescription'),
-        note: document.querySelector('.filmNote')
-    }
+    filmTitle = document.querySelector('.filmTitle');
+    filmTime = document.querySelector('.filmTime');
+    filmDon = document.querySelector('.don');
+    filmType = document.querySelector('.filmType');
+    filmAuthorText = document.querySelector('.filmAuthor');
+    filmAuthor = document.querySelector('.filmAuthor');
+    filmYear = document.querySelector('.filmYear');
+    filmDesc = document.querySelector('.filmDescription');
+    filmNote = document.querySelector('.filmNote');
     
-    film.title.textContent = video.title;
-    film.time.textContent = video.duration;
+    filmTitle.textContent = video.title;
+    filmTime.textContent = video.duration;
 //    film.don.textContent = '';
-//    film.type.textContent = video.title;
-//    film.authorText.textContent = video.title;
-//    film.author.textContent = video.title;
-//    film.year.textContent = video.title;
-//    film.desc.textContent = video.title;
-//    film.note.textContent = video.title;
-    console.log(video.id);
+    filmType.textContent = video.category;
+    filmAuthorText.textContent = video.author;
+//    filmAuthor.textContent = video.title;
+    filmYear.textContent = video.year;
+    filmDesc.textContent = video.description;
+    filmNote.textContent = video.rating;
 }
 
 /* Close modal */
@@ -283,6 +278,7 @@ for(var i = 0; i < marks.length; i++){
 
             for(var i = 0; i < note; i++){
                 marks[i].classList.add('active');
+                marks[i].setAttribute("class", "markUser ion-android-star");
             }
         }
     });
@@ -291,6 +287,7 @@ for(var i = 0; i < marks.length; i++){
         if(voteSaved === false){
             for(var i = 0; i < note; i++){
                 marks[i].classList.remove('active');
+                marks[i].setAttribute("class", "markUser ion-android-star-outline");
             }
         }
     });
@@ -302,6 +299,7 @@ for(var i = 0; i < marks.length; i++){
 
             for(var i = 0; i < note; i++){
                 marks[i].classList.add('active');
+                marks[i].setAttribute("class", "markUser ion-android-star");
             }
             
             voteMsg.textContent = 'Note enregistrée !';
