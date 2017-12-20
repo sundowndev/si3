@@ -1,4 +1,185 @@
 <html>
+<<<<<<< HEAD
+  <head>
+    <meta charset="UTF-8">
+    <title>site de streaming</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  </head>
+
+  <body>
+      <!--  inte ici  -->
+      <div class="container">
+          <header>
+              <div class="header">
+                  <h1 class="logo1"><a href="index.html">Indie<span class="logo2">Movies</span></a></h1>
+                  <div class="mainNav">
+                      <input class="searchBar" type="text" placeholder="Recherche...">
+
+                      <a href="#"><i class="icon ion-person"></i></a>
+
+                      <a href="#"><i class="icon ion-ios-cloud-upload"></i></a>
+
+                      <p class="langChoice"><a href="?lang=fr">fr</a></p>
+                  </div>
+              </div>
+          </header>
+
+          <section>
+              <!-- Landing zone  -->
+              <div class="topContainer">
+                  <div class="imgTitle --news">
+                      <h3 class="textTitle">Nouveautés</h3>
+                  </div>
+                  <div class="imgTitle --top10">
+                      <h3 class="textTitle">Top 10</h3>
+                  </div>
+                  <div class="imgTitle --coupdecoeur">
+                      <h3 class="textTitle">Coup de cœur</h3>
+                  </div>
+              </div>
+
+              <div class="greenBar"></div>
+
+          </section>
+
+          <section>
+              <!-- Filtres -->
+              <div class="itemContainer">
+                  <ul class="listItem">
+                      <li class="items"><a href="#" class="filter-btn" data="all">Tous</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="action">Action</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="horreur">Horreur</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="animation">Animation</a></li>
+                      <li class="items"><a href="#" class="filter-btn" data="comedy">Comédie</a></li>
+                  </ul>
+              </div>
+
+          </section>
+
+          <section>
+              <!-- Affiches des Films -->
+              <div class="movieContainer">
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+
+                  <div class="imgContainer video-thumbnail" data="id"></div>
+              </div>
+          </section>
+
+          <section>
+              <!-- FOOTER -->
+              <div class="footerContainer">
+                  <div class="footerPart">
+                    <h4 class="footerTitle">Besoin d'aide ?</h4>
+                    <ul>
+                        <li class="footerText"><a href="#" class="footerTextLink">FAQ</a></li>
+                        <li class="footerText"><a href="#" class="footerTextLink">Conditions d'utilisateur</a></li>
+                        <li class="footerText"><a href="#" class="footerTextLink">Nous contacter</a></li>
+                  </ul>
+                  </div>
+
+                  <div class="footerPart">
+                      <h4 class="footerTitle">Retrouvez-nous sur :</h4>
+                      <div class="imgFooter  --socialImg">
+                          <img class="footerIcons" src="assets/img/Facebook.png" alt="Facebook">
+                          <img class="footerIcons" src="assets/img/Instagram.png" alt="Instagram">
+                          <img class="footerIcons" src="assets/img/Twitter.png" alt="Twitter">
+                      </div>
+                  </div>
+
+                  <div class="footerPart">
+                      <h4 class="footerTitle">Independent Movie sur mobile :</h4>
+                      <div class="imgFooter">
+                          <img class="footerIcons" src="assets/img/Apple.png" alt="Apple">
+                          <img class="footerIcons" src="assets/img/Android.png" alt="Android">
+                          <img class="footerIcons" src="assets/img/Windows.png" alt="Windows">
+                      </div>
+                  </div>
+
+                  <div class="footerPart">
+                    <ul>
+                        <li class="footerText"><a href="#" class="footerTextLink">Mentions légales</a></li>
+                        <li class="footerText"><a href="#" class="footerTextLink">Conditions d'utilisations</a></li>
+                        <li class="footerText"><a href="#" class="footerTextLink">Confidentialité</a></li>
+                    </ul>
+                  </div>
+              </div>
+          </section>
+
+
+          <!-- MODAL -->
+          <div class="modal">
+              <div class="modalOverlay"></div>
+
+              <div class="modal_content">
+                  <div class="imgModal">
+                      <img class="playModal" src="assets/img/ModalPlay.png" alt="Play">
+                  </div>
+
+                  <div class="filmInfo">
+                      <div class="titleContent">
+                          <div class="titleAndTime">
+                              <h3 class="filmTitle">Naruto Live Action</h3>
+                              <p class="filmTime">8:26</p>
+                          </div>
+                              <a href="#" class="don">FAIRE UN DON</a>
+                      </div>
+                      <p class="filmType">Action</p>
+                      <p class="filmAuthorText">Réalisé par <a href="#" class="filmAuthor">Brice Duan</a> en <span class="filmYear">2016<span></p>
+                      <p class="filmDescription">
+                          Naruto Live Action - "L'Héritage". Un membre de l'Akatsuki est venu défier les héritiers de Naruto ! Il s'agit d'un fan film rendant
+                          hommage à l'oeuvre de Masashi Kishimito. Merci à Rivenx3i pour m'avoir inspiré avec sa vidéo Naruto Shippuden Dreamers Fight,
+                          le meilleur fan film sur Naruto à ce jour'.
+                      </p>
+
+                      <div class="mark">
+                          <div class="markContent">
+                              <div class="markUser"></div>
+                              <div class="markUser"></div>
+                              <div class="markUser"></div>
+                              <div class="markUser"></div>
+                              <div class="markUser"></div>
+                          </div>
+                          <div class="dataMark">
+                              <p class="markText">4/5</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+=======
 
 <head>
   <meta charset="UTF-8">
@@ -10,7 +191,7 @@
 
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 <body>
@@ -28,6 +209,7 @@
 
           <p class="langChoice"><a href="?lang=fr">fr</a></p>
         </div>
+>>>>>>> 560914a14385249437acc545ab9b6bc09d75c8d5
       </div>
     </header>
 
