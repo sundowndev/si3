@@ -1,6 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #212025;
+  font-family: 'Roboto', sans-serif;
+  background-color: #212025;
 }
 
 header {
@@ -17,7 +17,7 @@ header {
 }
 
 a {
-    color: unset;
+  color: unset;
 }
 
 /* HEADER */
@@ -30,23 +30,23 @@ a {
 }
 
 .logo1 {
-    color: #e8335c;
-    font-size: 36px;
-    font-weight: bold;
-    width: 50%;
-    text-transform: uppercase;
+  color: #e8335c;
+  font-size: 36px;
+  font-weight: bold;
+  width: 50%;
+  text-transform: uppercase;
 }
 
 .logo2 {
-    color: #64e6c4;
-    font-weight: 300;
+  color: #64e6c4;
+  font-weight: 300;
 }
 
 .mainNav {
-    display: flex;
-    justify-content: space-between;
-    width: 35%;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  align-items: center;
 }
 
 .searchBar {
@@ -59,23 +59,22 @@ a {
 }
 
 .icon {
-    color: #fff;
-    font-size: 32px;
+  color: #fff;
+  font-size: 32px;
 }
 
 .langChoice {
-    color: #fff;
-    text-transform: uppercase;
+  color: #fff;
+  text-transform: uppercase;
 }
-
 
 /* LANDING ZONE */
 
 .topContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 142px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 142px;
 }
 
 .imgTitle {
@@ -84,32 +83,32 @@ a {
 }
 
 .textTitle {
-    font-size: 30px;
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 318px;
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 318px;
 }
 
 .--news {
-    background-image: url("../img/Nouveautés.png");
+  background-image: url("../img/nouveautes.png");
 }
 
 .--top10 {
-    background-image: url("../img/top10.png");
+  background-image: url("../img/top10.png");
 }
 
 .--coupdecoeur {
-    background-image: url("../img/Coup de coeur.png");
+  background-image: url("../img/coupdecoeur.png");
 }
 
 .greenBar {
-    width: 450px;
-    height: 5px;
-    float: right;
-    background-color: #64e6c4;
-    margin-top: 35px;
+  width: 450px;
+  height: 5px;
+  float: right;
+  background-color: #64e6c4;
+  margin-top: 35px;
 }
 
 /* FILTRES */
@@ -119,40 +118,41 @@ a {
 }
 
 .listItem {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    width: 500px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 500px;
 }
 
 .items {
-    color: #9a9a9a;
-    font-size: 18px;
-    text-transform: uppercase;
+  color: #9a9a9a;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-.items .filter-btn:hover{
-    color: #fff;
+.items .filter-btn:hover {
+  color: #fff;
 }
 
-.items .filter-btn.active{
-    font-weight: 700;
-    color: #fff;
+.items .filter-btn.active {
+  font-weight: 700;
+  color: #fff;
 }
 
 /* AFFICHES DES FILMS */
-.movieParent{
-    text-align: center;
-    display: inline-block;
-    width: 100%;
+
+.movieParent {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
 }
 
 .movieContainer {
-    margin-top: 85px;
-    margin-bottom: 155px;
-    text-align: left;
-    display: inline-block;
-    width: 100%;
+  margin-top: 85px;
+  margin-bottom: 155px;
+  text-align: left;
+  display: inline-block;
+  width: 100%;
 }
 
 .imgContainer {
@@ -174,153 +174,167 @@ a {
 }
 
 .imgContainer.hidden {
-    opacity: 0;
+  opacity: 0;
+  justify-content: center;
+  display: inline-flex;
+  max-width: 202px;
+  width: 18%;
+  height: 343px;
+  margin: 0 1%;
+  margin-top: 30px;
+  background-color: #fff;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: .4s ease-in-out;
+  vertical-align: top;
 }
 
 .imgContainer span {
-    padding: 5px;
-    line-height: 1.5em;
-    text-align: center;
-    color: #fff;
-    position: relative;
-    margin: auto;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    transition: .4s;
-    transform: translateY(343px);
+  padding: 5px;
+  line-height: 1.5em;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  margin: auto;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: .4s;
+  transform: translateY(343px);
 }
 
 .imgContainer:hover {
-    cursor: pointer;
-    transform: scale(1.04);
+  cursor: pointer;
+  transform: scale(1.04);
 }
 
 .imgContainer:hover span {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .footerContainer {
-    display: flex;
-    width: 100%;
-    height: 175px;
-    color: #fff;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  height: 175px;
+  color: #fff;
+  justify-content: space-between;
 }
 
 .footerPart {
-    width: 14%;
-    margin: 0 auto;
+  width: 14%;
+  margin: 0 auto;
 }
 
 .footerTitle {
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .footerTextLink {
-    width: 120px;
-    font-size: 10px;
-    line-height: 20px;
+  width: 120px;
+  font-size: 10px;
+  line-height: 20px;
 }
 
 .imgFooter {
-    display: flex;
+  display: flex;
   justify-content: space-between;
 }
 
 .footerIcons {
-    width: 24px;
-    height: auto;
-    margin-top: 10px;
+  width: 24px;
+  height: auto;
+  margin-top: 10px;
 }
 
 /* MODAL */
 
 .modal {
-    display:;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 }
 
 .modalOverlay {
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #212025;
-    opacity: 0.7;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #212025;
+  opacity: 0.7;
 }
 
 .modal_content {
-    height: 590px;
-    width: 940px;
-    margin: 105 auto;
+    width: 100%;
+    height: 100%;
+    margin: auto;
     background-color: #fff;
-    border-radius: 3px;
 }
 
 .imgModal {
-    height: 337px;
-    text-align: center;
+  height: 337px;
+  text-align: center;
 }
 
 .playModal {
-    margin: 13% auto;
+  margin: 13% auto;
 }
 
 .filmInfo {
-    height: 253px;
-    width: 700px;
-    margin: 0 auto;
+  height: 253px;
+  width: 700px;
+  margin: 0 auto;
 }
 
 .titleContent {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-bottom: 5px;
 }
 
 .titleAndTime {
-    display: flex;
+  display: flex;
 }
 
 .filmTitle {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .filmTime {
-    font-size: 16px;
-    padding-top: 4px;
-    padding-left: 4px;
+  font-size: 16px;
+  padding-top: 4px;
+  padding-left: 4px;
 }
 
 .don {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .filmType {
-    font-size: 16px;
-    margin-bottom: 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .filmAuthorText {
-    font-size: 18px;
-    margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .filmAuthor {
-    color: #57e3b7;
+  color: #57e3b7;
 }
 
 .filmDescription {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .mark {
@@ -331,18 +345,18 @@ a {
 }
 
 .markContent {
-    display: flex;
-    justify-content: space-between;
-    width: 150px;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
 }
 
 .markUser {
-    width: 20px;
-    height: 20px;
-    border: 2px solid grey;
+  width: 20px;
+  height: 20px;
+  border: 2px solid grey;
 }
 
 .dataMark {
-    font-size: 16px;
-    line-height: 20px;
+  font-size: 16px;
+  line-height: 20px;
 }
