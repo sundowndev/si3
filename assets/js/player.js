@@ -37,6 +37,9 @@ function videoPlayer(player, options, data) {
     /* fullscreen button */
     var fullscreen = document.querySelector('.fullscreenButton');
     
+    /* Stop & return button */
+    var returnBtn = document.querySelector('.return');
+    
     /* Create the audio object */
     var video = document.querySelector('#videoPlayer');
     
@@ -142,27 +145,12 @@ function videoPlayer(player, options, data) {
         }
     });
     
-    timeline.addEventListener('input', function(e){ // quand on clique sur la timeline, on met à jour le temps actuel de la vidéo
+    timeline.addEventListener('click', function(e){ // quand on clique sur la timeline, on met à jour le temps actuel de la vidéo
         getCurrentTimerSec(e.toElement.value); // cette fonction permet de convertir la valeur en pourcentage de la timeline en secondes par rapport au temps max. de la vidéo
     });
     
     video.addEventListener("playing", function(){ // quand le player est actif...
         options.playing = true;
-        
-//        var int = setInterval(function(){
-//            controls.classList.add('hidden');
-//        }, 3000);
-//        
-//        document.onmousemove = function mouseMove(){
-//            controls.classList.remove('hidden');
-//        }
-        
-        //window.clearInterval(int);
-        
-        //répèter:
-        //set timeout i--; 3000ms
-        //cacher le lecteur
-        //si mouseover sur le player -> afficher le lecteur + i = 3;
     });
     
     video.addEventListener("timeupdate", function(){ // à chaque instant où la vidéo est jouée, on met à jour le timer
@@ -170,7 +158,7 @@ function videoPlayer(player, options, data) {
     });
     
     video.addEventListener("ended", function(){ // quand la vidéo est terminée
-        //ended
+        this.options.playing = false;
     });
     
     fullscreen.addEventListener('click', launchFullscreen);
@@ -196,27 +184,35 @@ function videoPlayer(player, options, data) {
             video.volume = parent.volume;
         }
         
-        console.log(video.volume*100);
         volBar.value = video.volume*100;
     });
     
     volBar.addEventListener('input', function(){
         video.volume = this.value*0.01;
-        console.log(this.value);
     });
     
     var timeout;
-    video.onmousemove = function mouseMove(){
+    this.player.onmousemove = function mouseMove(){
         clearTimeout(timeout);
-        video.style.cursor = '';
+        parent.player.style.cursor = '';
         controls.classList.remove('hidden');
         if(parent.options.playing === true){
             timeout = setTimeout(function(){
-                video.style.cursor = 'none';
+                parent.player.style.cursor = 'none';
                 controls.classList.add('hidden');
             }, 1500);
         }
     }
+    
+    video.addEventListener('click', function(){
+        if(options.playing === false){ // si le player n'est pas déjà actif, on met play
+            parent.play();
+            options.playing = true;
+        }else{ // sinon on met pause
+            parent.pause();
+            options.playing = false;
+        }
+    });
     
     // Fullscreen
     video.addEventListener('dblclick', launchFullscreen); // double clique sur le player -> plein écran
@@ -237,9 +233,9 @@ function videoPlayer(player, options, data) {
     }
 
     function exitHandler(){
-        if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null){
-                document.querySelector('.player').classList.toggle('fullscreen');
-            }
+        if (document.webkitIsFullScreen || document.mozFullScreen ||               document.msFullscreenElement !== null){
+            document.querySelector('.player').classList.toggle('fullscreen');
+        }
         
             if(parent.options.isFullscreen == false){
                 fullscreen.innerHTML = '<img class="noFullscreen" src="./assets/img/playerButtons/ExitFullScreen.png">';

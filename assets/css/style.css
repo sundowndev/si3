@@ -97,13 +97,14 @@ strong {
 
 .searchBar {
   background-color: transparent;
-  color: #fff;
-  padding: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 12px;
   border: none;
-  border-radius: 30px;
+  border-radius: 1px;
   height: 20px;
   margin-right: 60px;
   outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .searchBar::-webkit-input-placeholder {
@@ -357,10 +358,10 @@ strong {
     position: absolute;
     top: 30px;
     right: 30px;
-    font-size: 18px;
+    font-size: 28px;
     color: rgba(255, 255, 255, 0.8);
     transition: .4s;
-    z-index: 999;
+    z-index: 1002;
 }
 
 .closeModal:hover {
