@@ -186,11 +186,6 @@ function videoPlayer(player, options, data) {
                 parent.options.playing = false;
             }
         }
-        
-        if(e.keyCode == 27 && parent.isFullscreen){ // la touche échape pour le fullscreen
-            parent.player.classList.remove('fullscreen');
-            parent.isFullscreen = false;
-        }
     });
     
     volButton.addEventListener('click', function(){

@@ -129,6 +129,8 @@ var voteSaved = false;
 var note = 0;
 var voteMsg = document.querySelector('p.voteMsg');
 
+var film = {};
+
 closeModalBtn.addEventListener('click', function(e){
     e.preventDefault();
     closeModal();
@@ -136,6 +138,8 @@ closeModalBtn.addEventListener('click', function(e){
     voteSaved = false;
     note = 0;
     voteMsg.textContent = '';
+    
+    film = {};
 });
 
 filters_btn.forEach(function(els){
@@ -214,7 +218,7 @@ async function setThumbnails(element) {
 //}
 
 /* Open modal */
-async function openModal(){
+async function openModal(videoID){
     document.body.style.overflow = 'hidden';
     modal.style.display = 'initial';
     
@@ -225,6 +229,38 @@ async function openModal(){
     await sleep(100);
     
     modal.style.opacity = 1;
+    
+    var video = {};
+    
+    data.films.forEach(function(el){
+        if(el.id == videoID){
+            video = el;
+            return el;
+        }
+    });
+    
+    film = {
+        title: document.querySelector('.filmTitle'),
+        time: document.querySelector('.filmTime'),
+        don: document.querySelector('.don'),
+        type: document.querySelector('.filmType'),
+        authorText: document.querySelector('.filmAuthorText'),
+        author: document.querySelector('.filmAuthor'),
+        year: document.querySelector('.filmYear'),
+        desc: document.querySelector('.filmDescription'),
+        note: document.querySelector('.filmNote')
+    }
+    
+    film.title.textContent = video.title;
+    film.time.textContent = video.duration;
+//    film.don.textContent = '';
+//    film.type.textContent = video.title;
+//    film.authorText.textContent = video.title;
+//    film.author.textContent = video.title;
+//    film.year.textContent = video.title;
+//    film.desc.textContent = video.title;
+//    film.note.textContent = video.title;
+    console.log(video.id);
 }
 
 /* Close modal */

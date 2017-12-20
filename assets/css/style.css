@@ -388,10 +388,13 @@ strong {
 
 .titleAndTime {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .filmTitle {
   font-size: 20px;
+  width: 75%;
+  margin-bottom: 15px;
 }
 
 .filmTime {
@@ -406,6 +409,9 @@ strong {
   background: #e8335c;
   border: 1px solid #e8335c;
   padding: 8px;
+  width: 18%;
+  text-align: center;
+  height: fit-content;
   transition: .4s;
 }
 
@@ -420,6 +426,7 @@ strong {
 
 .filmAuthorText {
   font-size: 15px;
+  margin-top: 8px;
   margin-bottom: 15px;
 }
 
