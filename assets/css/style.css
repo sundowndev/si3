@@ -246,18 +246,10 @@ a {
 }
 
 .modal_content {
-<<<<<<< HEAD
     width: 100%;
     height: 100%;
     margin: auto;
     background-color: #fff;
-=======
-  width: 940px;
-  height: auto;
-  margin: auto;
-  background-color: #fff;
-  border-radius: 3px;
->>>>>>> c2510b7f5ac4776335489184f17e6eb385bbd251
 }
 
 .imgModal {
