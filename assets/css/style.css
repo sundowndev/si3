@@ -33,6 +33,11 @@
   src: url(../font/Roboto-Thin.ttf);
 }
 
+@font-face {
+  font-family: 'Roboto-ThinItalic';
+  src: url(../font/Roboto-ThinItalic.ttf);
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #212025;
