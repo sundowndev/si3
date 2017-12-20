@@ -289,7 +289,16 @@ a {
 }
 
 .don {
+  color: #fff;
   font-size: 18px;
+  background: #e8335c;
+  border: 1px solid #e8335c;
+  padding: 8px;
+  transition: .4s;
+}
+
+.don:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .filmType {
@@ -298,16 +307,17 @@ a {
 }
 
 .filmAuthorText {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 
 .filmAuthor {
-  color: #57e3b7;
+  color: #e8335c;
 }
 
 .filmDescription {
   font-size: 12px;
+  line-height: 1.4em;
 }
 
 .mark {
