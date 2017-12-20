@@ -61,7 +61,7 @@ a {
 }
 
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* HEADER */
@@ -341,9 +341,8 @@ strong {
 
 .modal_content {
   position: relative;
-  top: 5%;
   width: 80%;
-  height: 90%;
+  height: 100%;
   margin: auto;
   background-color: #F5F6F8;
   overflow: auto;
@@ -400,7 +399,7 @@ strong {
 .filmTime {
   font-size: 16px;
   padding-top: 4px;
-  padding-left: 4px;
+  padding-left: 20px;
 }
 
 .don {
@@ -460,7 +459,7 @@ strong {
   transition: .2s;
 }
 
-.markUser.active{
+.markUser.active {
   background: rgb(232, 51, 92);
 }
 
