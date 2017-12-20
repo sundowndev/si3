@@ -110,6 +110,20 @@ var filter = 'all';
 
 var filters_btn = document.querySelectorAll('.filter-btn');
 
+var movieContainer = document.querySelector('.movieContainer');
+var imgContainer = '';
+
+var videos_thumbnails = document.querySelector('.video-thumbnail');
+
+var modal = document.querySelector('.modal');
+
+var closeModalBtn = document.querySelector('.closeModal');
+
+closeModalBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    closeModal();
+});
+
 filters_btn.forEach(function(els){
     els.addEventListener('click', function(e){
         e.preventDefault();
@@ -124,13 +138,10 @@ filters_btn.forEach(function(els){
             filter = els.getAttribute('data');
             els.classList.add('active');
 
-            setThumbnails(data.films); 
+            setThumbnails(data.films);
         }
     });
 });
-
-var movieContainer = document.querySelector('.movieContainer');
-var imgContainer = '';
 
 setThumbnails(data.films);
 
@@ -148,7 +159,7 @@ async function setThumbnails(element) {
     movieContainer.innerHTML = '';
     
     element.forEach(function(e){
-        var html = '<div class="imgContainer video-thumbnail hidden" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><span>'+e.title+'</span></div>';
+        var html = '<div class="imgContainer video-thumbnail hidden" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><div class="overlay"><span>'+e.title+'</span></div></div>';
         
         if(filter == 'all'){
             movieContainer.innerHTML += html;
@@ -170,19 +181,33 @@ async function setThumbnails(element) {
     imgContainer.forEach(function(els){
         els.classList.remove('hidden');
     });
+    
+    var videos_thumbnails = document.querySelectorAll('.video-thumbnail');
+        
+    videos_thumbnails.forEach(function(els){
+        els.addEventListener('click', function(e){
+            videoID = e.path[1].getAttribute('data');
+            openModal(videoID);
+        });
+    });
 }
-
-var videos_thumbnails = document.querySelector('.video-thumbnail');
-
-videos_thumbnails.addEventListener('click', function(e){
-    videoID = e.getAttribute('data');
-});
         
 /* on definie la langue */
 if(getAllUrlParams().lang == 'en'){
     lang = 'en'
 }else{
     lang = 'fr'
+}
+
+/* open modal */
+function openModal(){
+    document.body.style.overflow = 'hidden';
+    modal.style.display = 'initial';
+}
+
+function closeModal(){
+    document.body.style.overflow = '';
+    modal.style.display = 'none';
 }
 
 //video.set('a5dMxYp');

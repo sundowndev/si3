@@ -43,6 +43,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 500;
 }
 
 .container, .header {
@@ -86,7 +87,7 @@ a {
 }
 
 .searchBar {
-  <<<<<<< HEAD background-color: #212025;
+  background-color: #212025;
   color: #fff;
   padding: 10px;
   border: 1px solid #fff;
@@ -94,17 +95,9 @@ a {
   height: 20px;
   margin-right: 60px;
   outline: none;
-  =======background-color: transparent;
-  color: #fff;
-  border: none;
-  height: 20px;
-  margin-right: 60px;
-  outline: none;
-  >>>>>>>4dc8272f243914a743efa9ad138a235b0d6e6140
 }
 
 .searchBar::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
   font-family: 'Roboto-ThinItalic';
 }
 
@@ -247,8 +240,6 @@ a {
   position: relative;
   margin: auto;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  transition: .4s;
-  transform: translateY(343px);
 }
 
 .imgContainer:hover {
@@ -256,7 +247,17 @@ a {
   transform: scale(1.04);
 }
 
-.imgContainer:hover span {
+.imgContainer .overlay {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  transition: .4s;
+  transform: translateY(343px);
+  */
+}
+
+.imgContainer:hover .overlay {
   transform: translateY(0);
 }
 
@@ -308,6 +309,8 @@ a {
   width: 100%;
   height: 100%;
   justify-content: center;
+  z-index: 999;
+  display: none;
 }
 
 .modalOverlay {
@@ -326,11 +329,21 @@ a {
   height: 100%;
   margin: auto;
   background-color: #fff;
+  overflow: auto;
+  color: #1d1d1d;
 }
 
 .imgModal {
   height: 337px;
   text-align: center;
+}
+
+.closeModal {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 18px;
+  color: rgba(29, 29, 29, 0.5);
 }
 
 .playModal {
@@ -365,7 +378,16 @@ a {
 }
 
 .don {
+  color: #fff;
   font-size: 18px;
+  background: #e8335c;
+  border: 1px solid #e8335c;
+  padding: 8px;
+  transition: .4s;
+}
+
+.don:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .filmType {
@@ -374,16 +396,17 @@ a {
 }
 
 .filmAuthorText {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 
 .filmAuthor {
-  color: #57e3b7;
+  color: #e8335c;
 }
 
 .filmDescription {
   font-size: 12px;
+  line-height: 1.4em;
 }
 
 .mark {
@@ -403,6 +426,13 @@ a {
   width: 20px;
   height: 20px;
   border: 2px solid grey;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.markUser:hover {
+  background: grey;
 }
 
 .dataMark {
