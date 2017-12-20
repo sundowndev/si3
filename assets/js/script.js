@@ -1,95 +1,101 @@
-var translate = {
-    fr: {
-        // header
-        title: '',
-        search: '',
-        // landing items
-        news: '',
-        top: '',
-        love: '',
-        // filters
-        all: '',
-        action: '',
-        horror: '',
-        animation: '',
-        comedy: ''
-    },
-    en: {
-        // header
-        title: '',
-        search: '',
-        // landing items
-        news: '',
-        top: '',
-        love: '',
-        // filters
-        all: '',
-        action: '',
-        horror: '',
-        animation: '',
-        comedy: ''
-    }
-}
+//var translate = {
+//    fr: {
+//        // header
+//        title: '',
+//        search: '',
+//        // landing items
+//        news: '',
+//        top: '',
+//        love: '',
+//        // filters
+//        all: '',
+//        action: '',
+//        horror: '',
+//        animation: '',
+//        comedy: ''
+//    },
+//    en: {
+//        // header
+//        title: '',
+//        search: '',
+//        // landing items
+//        news: '',
+//        top: '',
+//        love: '',
+//        // filters
+//        all: '',
+//        action: '',
+//        horror: '',
+//        animation: '',
+//        comedy: ''
+//    }
+//}
+//
+//function getAllUrlParams(url) {
+//  // get query string from url (optional) or window
+//  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+//
+//  // we'll store the parameters here
+//  var obj = {};
+//
+//  // if query string exists
+//  if (queryString) {
+//
+//    // stuff after # is not part of query string, so get rid of it
+//    queryString = queryString.split('#')[0];
+//
+//    // split our query string into its component parts
+//    var arr = queryString.split('&');
+//
+//    for (var i=0; i<arr.length; i++) {
+//      // separate the keys and the values
+//      var a = arr[i].split('=');
+//
+//      // in case params look like: list[]=thing1&list[]=thing2
+//      var paramNum = undefined;
+//      var paramName = a[0].replace(/\[\d*\]/, function(v) {
+//        paramNum = v.slice(1,-1);
+//        return '';
+//      });
+//
+//      // set parameter value (use 'true' if empty)
+//      var paramValue = typeof(a[1])==='undefined' ? true : a[1];
+//
+//      // (optional) keep case consistent
+//      paramName = paramName.toLowerCase();
+//      paramValue = paramValue.toLowerCase();
+//
+//      // if parameter name already exists
+//      if (obj[paramName]) {
+//        // convert value to array (if still string)
+//        if (typeof obj[paramName] === 'string') {
+//          obj[paramName] = [obj[paramName]];
+//        }
+//        // if no array index number specified...
+//        if (typeof paramNum === 'undefined') {
+//          // put the value on the end of the array
+//          obj[paramName].push(paramValue);
+//        }
+//        // if array index number specified...
+//        else {
+//          // put the value at that index number
+//          obj[paramName][paramNum] = paramValue;
+//        }
+//      }
+//      // if param name doesn't exist yet, set it
+//      else {
+//        obj[paramName] = paramValue;
+//      }
+//    }
+//  }
+//
+//  return obj;
+//}
 
-function getAllUrlParams(url) {
-  // get query string from url (optional) or window
-  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
-
-  // we'll store the parameters here
-  var obj = {};
-
-  // if query string exists
-  if (queryString) {
-
-    // stuff after # is not part of query string, so get rid of it
-    queryString = queryString.split('#')[0];
-
-    // split our query string into its component parts
-    var arr = queryString.split('&');
-
-    for (var i=0; i<arr.length; i++) {
-      // separate the keys and the values
-      var a = arr[i].split('=');
-
-      // in case params look like: list[]=thing1&list[]=thing2
-      var paramNum = undefined;
-      var paramName = a[0].replace(/\[\d*\]/, function(v) {
-        paramNum = v.slice(1,-1);
-        return '';
-      });
-
-      // set parameter value (use 'true' if empty)
-      var paramValue = typeof(a[1])==='undefined' ? true : a[1];
-
-      // (optional) keep case consistent
-      paramName = paramName.toLowerCase();
-      paramValue = paramValue.toLowerCase();
-
-      // if parameter name already exists
-      if (obj[paramName]) {
-        // convert value to array (if still string)
-        if (typeof obj[paramName] === 'string') {
-          obj[paramName] = [obj[paramName]];
-        }
-        // if no array index number specified...
-        if (typeof paramNum === 'undefined') {
-          // put the value on the end of the array
-          obj[paramName].push(paramValue);
-        }
-        // if array index number specified...
-        else {
-          // put the value at that index number
-          obj[paramName][paramNum] = paramValue;
-        }
-      }
-      // if param name doesn't exist yet, set it
-      else {
-        obj[paramName] = paramValue;
-      }
-    }
-  }
-
-  return obj;
+function capture(){
+    var canvas = document.getElementById('can');
+    var video = document.getElementById('videoPlayer');
+    canvas.getContext('2d').drawImage(video, 0, 0, 1280, 720);
 }
 
 function sleep(ms) {
@@ -121,6 +127,7 @@ var closeModalBtn = document.querySelector('.closeModal');
 
 var voteSaved = false;
 var note = 0;
+var voteMsg = document.querySelector('p.voteMsg');
 
 closeModalBtn.addEventListener('click', function(e){
     e.preventDefault();
@@ -128,6 +135,7 @@ closeModalBtn.addEventListener('click', function(e){
     
     voteSaved = false;
     note = 0;
+    voteMsg.textContent = '';
 });
 
 filters_btn.forEach(function(els){
@@ -199,27 +207,37 @@ async function setThumbnails(element) {
 }
         
 /* on definie la langue */
-if(getAllUrlParams().lang == 'en'){
-    lang = 'en'
-}else{
-    lang = 'fr'
-}
+//if(getAllUrlParams().lang == 'en'){
+//    lang = 'en'
+//}else{
+//    lang = 'fr'
+//}
 
-/* open modal */
-function openModal(){
+/* Open modal */
+async function openModal(){
     document.body.style.overflow = 'hidden';
     modal.style.display = 'initial';
     
     for(var i = 0; i < marks.length; i++){
         marks[i].classList.remove('active');
     }
+    
+    await sleep(100);
+    
+    modal.style.opacity = 1;
 }
 
-function closeModal(){
+/* Close modal */
+async function closeModal(){
+    modal.style.opacity = 0;
+    
+    await sleep(300);
+    
     document.body.style.overflow = '';
     modal.style.display = 'none';
 }
 
+/* Vote */
 var marks = document.querySelectorAll('.markUser');
 
 for(var i = 0; i < marks.length; i++){
@@ -249,6 +267,8 @@ for(var i = 0; i < marks.length; i++){
             for(var i = 0; i < note; i++){
                 marks[i].classList.add('active');
             }
+            
+            voteMsg.textContent = 'Note enregistrée !';
         }
     });
 }

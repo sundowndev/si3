@@ -60,6 +60,10 @@ a {
   color: unset;
 }
 
+strong {
+    font-weight: bold;
+}
+
 /* HEADER */
 
 .header {
@@ -129,6 +133,11 @@ a {
 .imgTitle {
   width: 335px;
   height: 316px;
+  transition: .4s;
+}
+
+.imgTitle:hover {
+  transform: scale(1.02);
 }
 
 .textTitle {
@@ -316,6 +325,8 @@ a {
   justify-content: center;
   z-index: 999;
   display: none;
+  opacity: 0;
+  transition: .4s;
 }
 
 .modalOverlay {
@@ -333,7 +344,7 @@ a {
   width: 100%;
   height: 100%;
   margin: auto;
-  background-color: #fff;
+  background-color: #F5F6F8;
   overflow: auto;
   color: #1d1d1d;
 }
@@ -364,6 +375,7 @@ a {
   height: 253px;
   width: 700px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .titleContent {
@@ -422,7 +434,6 @@ a {
 .mark {
   display: flex;
   justify-content: space-between;
-  width: 200px;
   margin-top: 40px;
 }
 

@@ -10,8 +10,12 @@ function videoPlayer(player, options, data) {
     this.options.timeline = '00:00';
     this.options.playing = false; // player actif ?
     this.options.isFullscreen = false; // fullscreen actif ?
+    this.volume = this.options.defaultVolume;
     
     /* Init the player */
+    /* Player controls */
+    var controls = document.querySelector('.bottomPlayer');
+    
     /* Play button */
     var pButton = document.querySelector('.playButton');
     
@@ -23,6 +27,12 @@ function videoPlayer(player, options, data) {
     
     /* timer element */
     var timer = document.querySelector('.timer');
+    
+    /* volume input element */
+    var volButton = document.querySelector('.volButton');
+    
+    /* volume input element */
+    var volBar = document.querySelector('.volTrack');
     
     /* fullscreen button */
     var fullscreen = document.querySelector('.fullscreenButton');
@@ -61,7 +71,13 @@ function videoPlayer(player, options, data) {
     var next = function(){}
     
     this.setVolume = function(vol){
-        video.volume = vol * 0.01; // round 100 to 1
+        if(vol == 0){
+            parent.volume = video.volume;
+        }else{
+            parent.volume = vol * 0.01;
+        }
+        
+        video.volume = parent.volume; // round 100 to 1
     }
     
     /* Privates functions */
@@ -132,17 +148,25 @@ function videoPlayer(player, options, data) {
     
     video.addEventListener("playing", function(){ // quand le player est actif...
         options.playing = true;
-    });
-    
-    video.addEventListener("timeupdate", function(){ // à chaque instant où la vidéo est jouée, on met à jour le timer
-        refreshTimer();
         
-        //var i = 3;
+//        var int = setInterval(function(){
+//            controls.classList.add('hidden');
+//        }, 3000);
+//        
+//        document.onmousemove = function mouseMove(){
+//            controls.classList.remove('hidden');
+//        }
+        
+        //window.clearInterval(int);
         
         //répèter:
         //set timeout i--; 3000ms
         //cacher le lecteur
         //si mouseover sur le player -> afficher le lecteur + i = 3;
+    });
+    
+    video.addEventListener("timeupdate", function(){ // à chaque instant où la vidéo est jouée, on met à jour le timer
+        refreshTimer();
     });
     
     video.addEventListener("ended", function(){ // quand la vidéo est terminée
@@ -168,6 +192,36 @@ function videoPlayer(player, options, data) {
             parent.isFullscreen = false;
         }
     });
+    
+    volButton.addEventListener('click', function(){
+        if(video.volume > 0){
+            parent.volume = video.volume;
+            video.volume = 0;
+        }else{
+            video.volume = parent.volume;
+        }
+        
+        console.log(video.volume*100);
+        volBar.value = video.volume*100;
+    });
+    
+    volBar.addEventListener('click', function(){
+        video.volume = this.value*0.01;
+        console.log(this.value);
+    });
+    
+    var timeout;
+    document.onmousemove = function mouseMove(){
+        clearTimeout(timeout);
+        document.body.style.cursor = '';
+        controls.classList.remove('hidden');
+        if(parent.options.playing === true){
+            timeout = setTimeout(function(){
+                document.body.style.cursor = 'none';
+                controls.classList.add('hidden');
+            }, 1500);
+        }
+    }
     
     // Fullscreen
     video.addEventListener('dblclick', launchFullscreen); // double clique sur le player -> plein écran
