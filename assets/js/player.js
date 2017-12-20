@@ -53,37 +53,9 @@ function videoPlayer(player, options, data) {
         options.playing = false;
     }
     
-    this.prev = function(){
-//        if(options.songList.indexOf(options.songList[options.index]) != 0){
-//            options.index -= 1;
-//            this.setSong(options.index);
-//            this.stop();
-//            
-//            if(options.playing === true){
-//                this.play();
-//            }else{
-//                this.stop();
-//            }
-//        }else if(options.playing === false){
-//            this.stop();
-//        }
-    }
+    var prev = function(){}
     
-    this.next = function(){
-//        if(options.songList.indexOf(options.songList[options.index]) != options.songList.length - 1){
-//            options.index += 1;
-//            this.setSong(options.index);
-//            this.pause();
-//            
-//            if(options.playing === true){
-//                this.play();
-//            }else{
-//                this.pause();
-//            }
-//        }else{
-//            this.stop();
-//        }
-    }
+    var next = function(){}
     
     this.setVolume = function(vol){
         video.volume = vol * 0.01; // round 100 to 1
@@ -157,6 +129,13 @@ function videoPlayer(player, options, data) {
     
     video.addEventListener("timeupdate", function(){ // à chaque instant où la vidéo est jouée, on met à jour le timer
         refreshTimer();
+        
+        //var i = 3;
+        
+        //répèter:
+        //set timeout i--; 3000ms
+        //cacher le lecteur
+        //si mouseover sur le player -> afficher le lecteur + i = 3;
     });
     
     video.addEventListener("ended", function(){ // quand la vidéo est terminée
