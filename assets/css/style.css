@@ -1,36 +1,36 @@
 @font-face {
   font-family: 'Roboto-Black';
-  src: url(Roboto-Black.ttf);
+  src: url(../font/Roboto-Black.ttf);
 }
 
 @font-face {
   font-family: 'Robot-Bold';
-  src: url(Roboto-Bold.ttf);
+  src: url(../font/Roboto-Bold.ttf);
 }
 
 @font-face {
   font-family: 'Roboto-Italic';
-  src: url(Roboto-Italic.ttf);
+  src: url(../font/Roboto-Italic.ttf);
 }
 
 @font-face {
   font-family: 'Roboto-LightItalic';
-  src: url(Roboto-LightItalic.ttf);
+  src: url(../font/Roboto-LightItalic.ttf);
 }
 
 @font-face {
   font-family: 'Roboto-Medium';
-  src: url(Roboto-Medium.ttf);
+  src: url(../font/Roboto-Medium.ttf);
 }
 
 @font-face {
   font-family: 'Roboto-MediumItalic';
-  src: url(Roboto-MediumItalic.ttf);
+  src: url(../font/Roboto-MediumItalic.ttf);
 }
 
 @font-face {
   font-family: 'Roboto-Thin';
-  src: url(Roboto-Thin.ttf);
+  src: url(../font/Roboto-Thin.ttf);
 }
 
 body {
@@ -39,14 +39,13 @@ body {
 }
 
 header {
-    background: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-.container,
-.header{
+.container, .header {
   width: 1138px;
   margin: auto;
 }
@@ -87,8 +86,7 @@ a {
 }
 
 .searchBar {
-<<<<<<< HEAD
-  background-color: #212025;
+  <<<<<<< HEAD background-color: #212025;
   color: #fff;
   padding: 10px;
   border: 1px solid #fff;
@@ -96,14 +94,13 @@ a {
   height: 20px;
   margin-right: 60px;
   outline: none;
-=======
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    height: 20px;
-    margin-right: 60px;
-    outline: none;
->>>>>>> 4dc8272f243914a743efa9ad138a235b0d6e6140
+  =======background-color: transparent;
+  color: #fff;
+  border: none;
+  height: 20px;
+  margin-right: 60px;
+  outline: none;
+  >>>>>>>4dc8272f243914a743efa9ad138a235b0d6e6140
 }
 
 .searchBar::-webkit-input-placeholder {
@@ -132,8 +129,8 @@ a {
 }
 
 .imgTitle {
-    width: 335px;
-    height: 316px;
+  width: 335px;
+  height: 316px;
 }
 
 .textTitle {
@@ -207,21 +204,21 @@ a {
 }
 
 .imgContainer {
-    justify-content: center;
-    display: inline-flex;
-    max-width: 202px;
-    width: 18%;
-    height: 343px;
-    margin: 0 1%;
-    margin-top: 30px;
-    background-color: #fff;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transition: .4s ease-in-out;
-    vertical-align: top;
-    opacity: 1;
+  justify-content: center;
+  display: inline-flex;
+  max-width: 202px;
+  width: 18%;
+  height: 343px;
+  margin: 0 1%;
+  margin-top: 30px;
+  background-color: #fff;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: .4s ease-in-out;
+  vertical-align: top;
+  opacity: 1;
 }
 
 .imgContainer.hidden {
