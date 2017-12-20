@@ -61,8 +61,8 @@ video {
   border-radius: 4px;
 }
 
-.player.fullscreen .bottomPlayer{
-    bottom: 10%;
+.player.fullscreen .bottomPlayer {
+  bottom: 10%;
 }
 
 .timer {
