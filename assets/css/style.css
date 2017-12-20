@@ -8,6 +8,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 500;
 }
 
 .container,
@@ -199,8 +200,6 @@ a {
   position: relative;
   margin: auto;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  transition: .4s;
-  transform: translateY(343px);
 }
 
 .imgContainer:hover {
@@ -208,7 +207,16 @@ a {
   transform: scale(1.04);
 }
 
-.imgContainer:hover span {
+.imgContainer .overlay {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    transition: .4s;
+    transform: translateY(343px); */
+}
+
+.imgContainer:hover .overlay {
   transform: translateY(0);
 }
 
@@ -259,6 +267,8 @@ a {
   width: 100%;
   height: 100%;
   justify-content: center;
+  z-index: 999;
+  display: none;
 }
 
 .modalOverlay {
@@ -277,11 +287,21 @@ a {
     height: 100%;
     margin: auto;
     background-color: #fff;
+    overflow: auto;
+    color: #1d1d1d;
 }
 
 .imgModal {
   height: 337px;
   text-align: center;
+}
+
+.closeModal {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 18px;
+    color: rgba(29, 29, 29, 0.5);
 }
 
 .playModal {
@@ -364,6 +384,13 @@ a {
   width: 20px;
   height: 20px;
   border: 2px solid grey;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.markUser:hover {
+  background: grey;
 }
 
 .dataMark {
