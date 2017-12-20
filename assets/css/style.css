@@ -225,12 +225,13 @@ a {
 /* MODAL */
 
 .modal {
-    display:;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    justify-content: center;
 }
 
 .modalOverlay {
@@ -245,9 +246,9 @@ a {
 }
 
 .modal_content {
-    height: 590px;
     width: 940px;
-    margin: 105 auto;
+    height: auto;
+    margin: auto;
     background-color: #fff;
     border-radius: 3px;
 }
