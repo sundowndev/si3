@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Roboto-Light';
-  src: url(../../font/Roboto-Light.ttf);
+  src: url(../font/Roboto-Light.ttf);
 }
 
 .player.fullscreen>body {
