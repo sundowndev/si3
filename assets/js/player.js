@@ -142,7 +142,7 @@ function videoPlayer(player, options, data) {
         }
     });
     
-    timeline.addEventListener('click', function(e){ // quand on clique sur la timeline, on met à jour le temps actuel de la vidéo
+    timeline.addEventListener('input', function(e){ // quand on clique sur la timeline, on met à jour le temps actuel de la vidéo
         getCurrentTimerSec(e.toElement.value); // cette fonction permet de convertir la valeur en pourcentage de la timeline en secondes par rapport au temps max. de la vidéo
     });
     
@@ -200,19 +200,19 @@ function videoPlayer(player, options, data) {
         volBar.value = video.volume*100;
     });
     
-    volBar.addEventListener('click', function(){
+    volBar.addEventListener('input', function(){
         video.volume = this.value*0.01;
         console.log(this.value);
     });
     
     var timeout;
-    document.onmousemove = function mouseMove(){
+    video.onmousemove = function mouseMove(){
         clearTimeout(timeout);
-        document.body.style.cursor = '';
+        video.style.cursor = '';
         controls.classList.remove('hidden');
         if(parent.options.playing === true){
             timeout = setTimeout(function(){
-                document.body.style.cursor = 'none';
+                video.style.cursor = 'none';
                 controls.classList.add('hidden');
             }, 1500);
         }

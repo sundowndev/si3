@@ -8,8 +8,9 @@
 }
 
 .player {
-  width: 768px;
+  width: 100%;
   position: relative;
+  background: black;
 }
 
 .player.fullscreen {
@@ -32,9 +33,11 @@ video {
 }
 
 .return {
-  position: relative;
-  top: 50px;
-  left: 50px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 50px;
+    z-index: 999;
 }
 
 .return>a {

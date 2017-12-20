@@ -9,12 +9,12 @@ function sleep(ms) {
 }
 
 /* initialisation du player video */
-//var video = new videoPlayer('.player', {
-//    // Parameters
-//    autoplay: false,
-//    loop: false,
-//    defaultVolume: 60
-//}, data.films);
+var video = new videoPlayer('.player', {
+    // Parameters
+    autoplay: false,
+    loop: false,
+    defaultVolume: 60
+}, data.films);
 
 /* variables */
 var lang = '';
