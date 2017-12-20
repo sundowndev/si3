@@ -64,8 +64,8 @@ video {
   opacity: 0;
 }
 
-.player.fullscreen .bottomPlayer{
-    bottom: 10%;
+.player.fullscreen .bottomPlayer {
+  bottom: 10%;
 }
 
 .timer {
