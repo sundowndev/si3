@@ -3,6 +3,10 @@
   src: url(../../font/Roboto-Light.ttf);
 }
 
+.player.fullscreen>body {
+  background-color: black;
+}
+
 .player {
   width: 500px;
   /*      height: 100%;*/
@@ -12,23 +16,41 @@
 .player.fullscreen {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: black;
 }
 
 video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 100vh;
   /*mettre ratio 16:9*/
 }
 
 .player button {
-    outline: none;
+  outline: none;
+}
+
+.return {
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+
+.return>a {
+  cursor: pointer;
+}
+
+.returnImg {
+  width: 20px;
 }
 
 .bottomPlayer {
   width: 65%;
   position: absolute;
-  bottom: 50px;
+  bottom: 20%;
   left: 0;
   right: 0;
   margin: auto;
@@ -59,20 +81,25 @@ video {
 }
 
 .timeContainer {
-  display: flex;
-  flex-direction: column;
+  text-align: center;
+}
+
+.timePosition {
+  display: inline-block;
+  width: 80%;
 }
 
 .timeRange {
   height: 40%;
-  width: 80%;
+  width: 100%;
+  position: relative;
   z-index: 1000;
 }
 
 input[type=range] {
   -webkit-appearance: none;
   /* Hides the slider so that custom slider can be made */
-  width: 80%;
+  width: 100%;
   /* Specific width is required for Firefox. */
   background: transparent;
   /* Otherwise white in Chrome */
@@ -88,7 +115,7 @@ input[type=range]:focus {
 }
 
 input[type=range]::-ms-track {
-  width: 80%;
+  width: 100%;
   cursor: pointer;
   /* Hides the slider so custom styles can be added */
   background: transparent;
@@ -100,12 +127,12 @@ input[type=range]::-ms-track {
 
 /* Special styling for WebKit/Blink */
 
-input[type=range]::-webkit-slider-thumb {
+input[type=range].timeRange::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
   border-radius: 100%;
-  background: #fff;
+  background: #64E6C4;
   cursor: pointer;
   margin-top: -5px;
   /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
@@ -163,6 +190,10 @@ input[type=range].volTrack::-webkit-slider-runnable-track {
   margin-bottom: 8px;
 }
 
+input[type=range].volTrack {
+  width: 80%;
+}
+
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 4px;
@@ -183,10 +214,8 @@ input[type=range]::-ms-track {
 }
 
 .timeLapse {
-  width: 61.1%;
+  width: 100%;
   height: 4px;
-  margin: auto;
-  margin-right: 162px;
   border-radius: 1.3px;
   position: relative;
   background-color: #64E6C4;
@@ -194,11 +223,29 @@ input[type=range]::-ms-track {
 }
 
 .controls {
-  width: 75%;
-  margin: auto;
+  width: 100%;
   display: flex;
+  text-align: center;
   justify-content: space-between;
   margin-top: 1em;
+}
+
+.controls>a {
+  cursor: pointer;
+}
+
+.controls>.left {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.controls>.center {
+  text-align: center;
+}
+
+.controls>.right {
+  display: inline-block;
+  padding-right: 20px;
 }
 
 .volButton {
