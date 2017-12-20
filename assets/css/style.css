@@ -388,11 +388,11 @@ strong {
 .titleAndTime {
   display: flex;
   flex-wrap: wrap;
+  width: 75%;
 }
 
 .filmTitle {
   font-size: 20px;
-  width: 75%;
   margin-bottom: 15px;
 }
 
