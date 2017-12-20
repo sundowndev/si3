@@ -212,7 +212,7 @@ a {
 }
 
 .imgFooter {
-  display: flex;
+    display: flex;
   justify-content: space-between;
 }
 
@@ -220,4 +220,116 @@ a {
     width: 24px;
     height: auto;
     margin-top: 10px;
+}
+
+/* MODAL */
+
+.modal {
+    display:;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modalOverlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #212025;
+    opacity: 0.7;
+}
+
+.modal_content {
+    height: 590px;
+    width: 940px;
+    margin: 105 auto;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.imgModal {
+    height: 337px;
+    text-align: center;
+}
+
+.playModal {
+    margin: 13% auto;
+}
+
+.filmInfo {
+    height: 253px;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.titleContent {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-bottom: 5px;
+}
+
+.titleAndTime {
+    display: flex;
+}
+
+.filmTitle {
+    font-size: 20px;
+}
+
+.filmTime {
+    font-size: 16px;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.don {
+    font-size: 18px;
+}
+
+.filmType {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.filmAuthorText {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.filmAuthor {
+    color: #57e3b7;
+}
+
+.filmDescription {
+    font-size: 12px;
+}
+
+.mark {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin-top: 40px;
+}
+
+.markContent {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.markUser {
+    width: 20px;
+    height: 20px;
+    border: 2px solid grey;
+}
+
+.dataMark {
+    font-size: 16px;
+    line-height: 20px;
 }
