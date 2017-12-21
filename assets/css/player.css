@@ -34,11 +34,11 @@ video {
 }
 
 .return {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 50px;
-    z-index: 999;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 50px;
+  z-index: 999;
 }
 
 .return>a {
