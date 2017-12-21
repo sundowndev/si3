@@ -175,13 +175,13 @@ function videoPlayer(player, options, data) {
     i = 5;
     let finish = document.querySelector('.finish');
     let sec = document.querySelector('.finish-sec');
-    sec.innerHTML = 5;
+    sec.innerHTML = pad(i % 60);
       
     let timeout = setInterval(function() {
         if(finish.classList.contains('hidden') === false){
             if(i > 0){
                 i--;
-                sec.innerHTML = i;
+                sec.innerHTML = pad(i % 60);
             }else{
                 clearInterval(timeout);
                 finishBox.classList.add('hidden');

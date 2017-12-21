@@ -1,11 +1,14 @@
-function capture(){
-    var canvas = document.getElementById('can');
-    var video = document.getElementById('videoPlayer');
-    canvas.getContext('2d').drawImage(video, 0, 0, 1280, 720);
-}
-
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return valString;
+  } else {
+    return valString;
+  }
 }
 
 /* initialisation du player video */
