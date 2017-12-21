@@ -120,8 +120,8 @@ var data = {
         category: 'Horreur / Thriller'
     }, {
         id: 'LtLD83',
-        src: 'The+Flash+Lite+(Comédie+fan+film)(720p).mp4',
-        title: 'The Flash Lite (Comédie fan film)',
+        src: 'The+Flash+Lite+(Comedy+fan+film)(720p).mp4',
+        title: 'The Flash Lite (Comedy fan film)',
         duration: '10:14',
         author: 'The Chublin Brothers',
         author_url: 'https://www.youtube.com/channel/UCPFmTZlrfUkRCjGgSLtqx1g',
@@ -138,7 +138,7 @@ var data = {
         duration: '4:45',
         author: 'Corey Vidal',
         author_url: 'https://www.youtube.com/channel/UCRBNWKYrybXl2Un6-ejwx8g',
-        description: 'As part of the on-going Star Wars-inspired action Comédie video series between YouTubers Corey Vidal (ApprenticeA) and Craig Benzine (Wheezy Waiter), the guys take the battle to the Cantina with a new lightsaber fight.',
+        description: 'As part of the on-going Star Wars-inspired action comedy video series between YouTubers Corey Vidal (ApprenticeA) and Craig Benzine (Wheezy Waiter), the guys take the battle to the Cantina with a new lightsaber fight.',
         year: 2014,
         audio_language: 'Anglais',
         sub_language: 'N/A',
@@ -146,8 +146,8 @@ var data = {
         category: 'Comédie'
     }, {
         id: 'Hll9I0',
-        src: 'THE+74th+HUNGER+GAMES+(SHORT+Comédie+FAN+FILM)(720p).mp4',
-        title: 'THE 74th HUNGER GAMES (SHORT Comédie FAN FILM)',
+        src: 'THE+74th+HUNGER+GAMES+(SHORT+COMEDY+FAN+FILM)(720p).mp4',
+        title: 'THE 74th HUNGER GAMES (SHORT COMEDY FAN FILM)',
         duration: '4:24',
         author: 'ChickenFeetFilms',
         author_url: 'https://www.youtube.com/channel/UC9nzWgRq-cQcakkzZq1XZvg',
@@ -159,12 +159,12 @@ var data = {
         category: 'Comédie'
     }, {
         id: 'TpfWAz',
-        src: 'VICTIM+-+A+Short+Slender+Man+Horreur+Film(720p).mp4',
-        title: 'VICTIM - A Short Slender Man Horreur Film',
+        src: 'VICTIM+-+A+Short+Slender+Man+Horror+Film(720p).mp4',
+        title: 'VICTIM - A Short Slender Man Horror Film',
         duration: '14:30',
         author: 'Eddie Adamson',
         author_url: 'https://www.youtube.com/channel/UCpWweEWZIfalXgKS1xO2RDw',
-        description: 'This is a Short Horreur film I made for my last college project in Creative Media Production, before I went off to University. We were given the chance to individually make a film of our own choice, of varied length and subject matter.',
+        description: 'This is a Short Horror film I made for my last college project in Creative Media Production, before I went off to University. We were given the chance to individually make a film of our own choice, of varied length and subject matter.',
         year: 2013,
         audio_language: 'N/A',
         sub_language: 'N/A',
@@ -172,7 +172,7 @@ var data = {
         category: 'Horreur / Thriller'
     }, {
         id: 'z6EFHN',
-        src: 'DONT+MOVE+-+A+Short+Horreur+Film+(2017)(720p).mp4',
+        src: 'DONT+MOVE+-+A+Short+Horror+Film+(2017)(720p).mp4',
         title: 'FALLOUT - Apocalyptic Thriller Short Film',
         duration: '7:27',
         author: 'AndrewProductionsTV',
