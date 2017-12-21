@@ -50,6 +50,8 @@ var searchBar = document.querySelector('.searchBar');
 
 var filmDon = document.querySelector('.don');
 
+var finishBox = document.querySelector('.finish');
+
 filmDon.addEventListener('click', function(){
     if(this.classList.contains('subscribed')){
         this.classList.remove('subscribed');
@@ -73,6 +75,8 @@ closeModalBtn.addEventListener('click', function(e){
     
     filmDon.classList.remove('subscribed');
     filmDon.innerHTML = '<i class="ion-heart"></i> S\'abonner';
+    
+    finishBox.classList.add('hidden');
 });
 
 filters_btn.forEach(function(els){

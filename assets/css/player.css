@@ -33,6 +33,32 @@ video {
   outline: none;
 }
 
+.finish {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    background: black;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    flex-direction: column;
+    opacity: 1;
+    transition: 1s;
+}
+
+.finish.hidden {
+    opacity: 0;
+    z-index: 0;
+}
+
+.finish p {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
 .return {
   position: absolute;
   top: 50px;

@@ -6,6 +6,7 @@ function videoPlayer(player, options, data) {
 
   /* Adding additional params */
   this.options.index = 0; // où je suis dans mon tableau de vidéos ?
+  this.options.src = '';
   this.options.current_timeline = '00:00';
   this.options.timeline = '00:00';
   this.options.playing = false; // player actif ?
@@ -39,6 +40,9 @@ function videoPlayer(player, options, data) {
 
   /* fullscreen button */
   var fullscreen = document.querySelector('.fullscreenButton');
+    
+  /* Lecture automatique, finish screen */
+  var finishBox = document.querySelector('.finish');
 
   /* Create the audio object */
   var video = document.querySelector('#videoPlayer');
@@ -48,7 +52,8 @@ function videoPlayer(player, options, data) {
    * e.g: videoPlayer.setVolume(50);
    */
   this.set = function(id, src) {
-    this.options.index = id;
+    parent.options.index = id;
+    parent.options.src = src;
     video.src = './data/videos/' + src;
     video.load();
   }
@@ -164,7 +169,36 @@ function videoPlayer(player, options, data) {
   });
 
   video.addEventListener("ended", function() { // quand la vidéo est terminée
-    this.options.playing = false;
+    parent.options.playing = false;
+    finishBox.classList.remove('hidden');
+      
+    i = 5;
+    let sec = document.querySelector('.finish-sec');
+      sec.innerHTML = 5;
+      
+    let timeout = setInterval(function() {
+        if(i > 0){
+            i--;
+            sec.innerHTML = i;
+        }else{
+            clearInterval(timeout);
+            finishBox.classList.add('hidden');
+            parent.stop();
+            
+            var newVideo = {};
+            
+            data.forEach(function(e){
+                if(e.id == parent.options.index){
+                    var id = data.indexOf(e) + 1;
+                    newVideo = data[id];
+                }
+            });
+            
+            parent.options.index = newVideo.id;
+            parent.set(newVideo.id, newVideo.src);
+            parent.play();
+        }
+      }, 1000);
   });
 
   fullscreen.addEventListener('click', launchFullscreen);
