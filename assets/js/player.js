@@ -185,9 +185,11 @@ function videoPlayer(player, options, data) {
   volButton.addEventListener('click', function() {
     if (video.volume > 0) {
       parent.volume = video.volume;
+      volButton.innerHTML = '<img class="volImg" src="assets/img/playerButtons/speaker-mute.png">';
       video.volume = 0;
     } else {
       video.volume = parent.volume;
+      volButton.innerHTML = '<img class="volImg" src="assets/img/playerButtons/speaker.png">';
     }
 
     volBar.value = video.volume * 100;
