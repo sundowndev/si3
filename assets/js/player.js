@@ -40,9 +40,6 @@ function videoPlayer(player, options, data) {
   /* fullscreen button */
   var fullscreen = document.querySelector('.fullscreenButton');
 
-  /* Stop & return button */
-  var returnBtn = document.querySelector('.return');
-
   /* Create the audio object */
   var video = document.querySelector('#videoPlayer');
 
@@ -224,21 +221,6 @@ function videoPlayer(player, options, data) {
     } else { // sinon on met pause
       parent.pause();
       options.playing = false;
-    }
-  });
-
-  returnBtn.addEventListener('click', function(e) {
-    closeModal();
-
-    voteSaved = false;
-    note = 0;
-    voteMsg.textContent = '';
-
-    film = {};
-    parent.stop();
-
-    if (parent.options.isFullscreen == true) {
-      exitFullscreen();
     }
   });
     

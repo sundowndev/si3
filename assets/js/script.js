@@ -50,6 +50,16 @@ var searchBar = document.querySelector('.searchBar');
 
 var filmDon = document.querySelector('.don');
 
+filmDon.addEventListener('click', function(){
+    if(this.classList.contains('subscribed')){
+        this.classList.remove('subscribed');
+        this.innerHTML = '<i class="ion-heart"></i> S\'abonner';
+    }else{
+        this.classList.add('subscribed');
+        this.innerHTML = '<i class="ion-checkmark"></i> Abonné';
+    }
+});
+
 closeModalBtn.addEventListener('click', function(e){
     e.preventDefault();
     closeModal();
@@ -166,16 +176,6 @@ async function openModal(id){
     filmDesc.textContent = videoInfos.description;
     filmNote.textContent = videoInfos.rating;
     
-    filmDon.addEventListener('click', function(){
-        if(this.classList.contains('subscribed')){
-            this.classList.remove('subscribed');
-            this.innerHTML = '<i class="ion-heart"></i> S\'abonner';
-        }else{
-            this.classList.add('subscribed');
-            this.innerHTML = '<i class="ion-checkmark"></i> Abonné';
-        }
-    });
-    
     video.set(videoInfos.id, videoInfos.src);
 }
 
@@ -256,7 +256,7 @@ searchBar.addEventListener('input', async function(){
         });
         
         if(movieContainer.innerHTML == ''){
-            movieContainer.innerHTML = '<p class="icon">Aucun résulat trouvé.</p>';
+            movieContainer.innerHTML = '<p class="icon text-center">Aucun résulat trouvé.</p>';
         }else{
             await sleep(300);
 
