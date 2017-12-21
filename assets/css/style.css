@@ -178,17 +178,17 @@ strong {
   width: 214px;
   height: 45px;
   margin-top: 67px;
+  font-size: 18px;
+  color: #fff;
 }
 
 .ion-ios-play-outline {
   color: #fff;
   font-size: 30px;
+  margin-right: 12px;
 }
 
 .buttonText {
-  font-size: 18px;
-  color: #fff;
-  margin-left: 12px;
 }
 
 /* FILTRES */
