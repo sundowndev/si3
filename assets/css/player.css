@@ -270,19 +270,32 @@ input[type=range]::-ms-track {
   margin-right: 8px;
 }
 
+.playStop-container {
+  display: flex;
+}
+
 .playButton {
   background-color: transparent;
   border: transparent;
   cursor: pointer;
 }
 
+.stopButton {
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+.stopImg {
+  width: 24;
+}
+
 .playImg {
-  width: 30px;
+  width: 25px;
   height: auto;
 }
 
 .pauseImg {
-  width: 30px;
+  width: 24px;
   height: auto;
 }
 
