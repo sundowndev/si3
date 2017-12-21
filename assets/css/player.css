@@ -51,7 +51,7 @@ video {
 
 .finish.hidden {
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
 }
 
 .finish p {

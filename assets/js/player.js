@@ -173,30 +173,34 @@ function videoPlayer(player, options, data) {
     finishBox.classList.remove('hidden');
       
     i = 5;
+    let finish = document.querySelector('.finish');
     let sec = document.querySelector('.finish-sec');
-      sec.innerHTML = 5;
+    sec.innerHTML = 5;
       
     let timeout = setInterval(function() {
-        if(i > 0){
-            i--;
-            sec.innerHTML = i;
-        }else{
-            clearInterval(timeout);
-            finishBox.classList.add('hidden');
-            parent.stop();
-            
-            var newVideo = {};
-            
-            data.forEach(function(e){
-                if(e.id == parent.options.index){
-                    var id = data.indexOf(e) + 1;
-                    newVideo = data[id];
-                }
-            });
-            
-            parent.options.index = newVideo.id;
-            parent.set(newVideo.id, newVideo.src);
-            parent.play();
+        if(finish.classList.contains('hidden') === false){
+            if(i > 0){
+                i--;
+                sec.innerHTML = i;
+            }else{
+                clearInterval(timeout);
+                finishBox.classList.add('hidden');
+                parent.stop();
+
+                var newVideo = {};
+
+                data.forEach(function(e){
+                    if(e.id == parent.options.index){
+                        var id = data.indexOf(e) + 1;
+                        newVideo = data[id];
+                    }
+                });
+
+                parent.options.index = newVideo.id;
+                parent.set(newVideo.id, newVideo.src);
+                parent.play();
+                setModalInfos(newVideo);
+            }   
         }
       }, 1000);
   });

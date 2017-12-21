@@ -168,6 +168,12 @@ async function openModal(id){
         }
     });
     
+    setModalInfos(videoInfos);
+    
+    video.set(videoInfos.id, videoInfos.src);
+}
+
+function setModalInfos (infos){
     filmTitle = document.querySelector('.filmTitle');
     filmTime = document.querySelector('.filmTime');
     filmType = document.querySelector('.filmType');
@@ -177,16 +183,14 @@ async function openModal(id){
     filmDesc = document.querySelector('.filmDescription');
     filmNote = document.querySelector('.filmNote');
     
-    filmTitle.textContent = videoInfos.title;
-    filmTime.textContent = videoInfos.duration;
-    filmType.textContent = videoInfos.category;
-    filmAuthorText.textContent = videoInfos.author;
-    filmAuthor.href = videoInfos.author_url;
-    filmYear.textContent = videoInfos.year;
-    filmDesc.textContent = videoInfos.description;
-    filmNote.textContent = videoInfos.rating;
-    
-    video.set(videoInfos.id, videoInfos.src);
+    filmTitle.textContent = infos.title;
+    filmTime.textContent = infos.duration;
+    filmType.textContent = infos.category;
+    filmAuthorText.textContent = infos.author;
+    filmAuthor.href = infos.author_url;
+    filmYear.textContent = infos.year;
+    filmDesc.textContent = infos.description;
+    filmNote.textContent = infos.rating;
 }
 
 /* Close modal */
