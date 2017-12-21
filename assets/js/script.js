@@ -51,6 +51,12 @@ var searchBar = document.querySelector('.searchBar');
 var filmDon = document.querySelector('.don');
 
 var finishBox = document.querySelector('.finish');
+var finishCancel = document.querySelector('.finish-cancel');
+
+finishCancel.addEventListener('click', function(){
+    video.stop();
+    finishBox.classList.add('hidden');
+});
 
 filmDon.addEventListener('click', function(){
     if(this.classList.contains('subscribed')){
