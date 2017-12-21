@@ -48,6 +48,8 @@ var film = {};
 
 var searchBar = document.querySelector('.searchBar');
 
+var filmDon = document.querySelector('.don');
+
 closeModalBtn.addEventListener('click', function(e){
     e.preventDefault();
     closeModal();
@@ -58,6 +60,9 @@ closeModalBtn.addEventListener('click', function(e){
     
     film = {};
     video.stop();
+    
+    filmDon.classList.remove('subscribed');
+    filmDon.innerHTML = '<i class="ion-heart"></i> S\'abonner';
 });
 
 filters_btn.forEach(function(els){
@@ -65,6 +70,8 @@ filters_btn.forEach(function(els){
         e.preventDefault();
         
         if(els.getAttribute('data') != filter){
+            searchBar.value = '';
+            
             var length = filters_btn.length;
             
             for (var i = 0; i < length; i++) {
@@ -126,6 +133,7 @@ async function openModal(id){
     
     for(var i = 0; i < marks.length; i++){
         marks[i].classList.remove('active');
+        marks[i].setAttribute("class", "markUser ion-ios-star-outline");
     }
     
     await sleep(100);
@@ -142,7 +150,6 @@ async function openModal(id){
     
     filmTitle = document.querySelector('.filmTitle');
     filmTime = document.querySelector('.filmTime');
-    filmDon = document.querySelector('.don');
     filmType = document.querySelector('.filmType');
     filmAuthorText = document.querySelector('.filmAuthor');
     filmAuthor = document.querySelector('.filmAuthor');

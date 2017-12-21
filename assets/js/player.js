@@ -18,6 +18,9 @@ function videoPlayer(player, options, data) {
 
   /* Play button */
   var pButton = document.querySelector('.playButton');
+    
+  /* Stop button */
+  var stopButton = document.querySelector('.stopButton');
 
   /* Timeline */
   var timeline = document.querySelector('.timeRange');
@@ -169,10 +172,12 @@ function videoPlayer(player, options, data) {
 
   fullscreen.addEventListener('click', launchFullscreen);
 
-  document.addEventListener('keydown', function(e) { // quand on appuis sur une touche
-    /* if key is space bar */
+  document.addEventListener('keydown', function(e) {// quand on appuis sur une touche      
+      /* if key is space bar */
     if (e.keyCode == 32) { // e correspond à l'élément de l'événement, ici keydown. keyCode est le code de la touche pressée (32 = espace)
-      if (parent.options.playing === false) {
+      e.preventDefault();
+        
+        if (parent.options.playing === false) {
         parent.play();
         parent.options.playing = true;
       } else {
@@ -233,6 +238,10 @@ function videoPlayer(player, options, data) {
     if (parent.options.isFullscreen == true) {
       exitFullscreen();
     }
+  });
+    
+  stopButton.addEventListener('click', function(e) {
+      parent.stop();
   });
 
   // Fullscreen
