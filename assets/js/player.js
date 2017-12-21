@@ -201,6 +201,8 @@ function videoPlayer(player, options, data) {
                 parent.play();
                 setModalInfos(newVideo);
             }   
+        }else{
+            clearInterval(timeout);
         }
       }, 1000);
   });
