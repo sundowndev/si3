@@ -405,12 +405,22 @@ strong {
 .don {
     color: #fff;
     font-size: 14px;
-    background: #e8335c;
+    background-color: #e8335c;
     border: 1px solid #e8335c;
     padding: 8px;
     text-align: center;
     height: fit-content;
+    text-transform: uppercase;
     transition: .4s;
+}
+
+.don.subscribed {
+    background-color: #1acd7a;
+    border-color: #1acd7a;
+}
+
+.don i {
+    margin-right: 3px;
 }
 
 .don:hover {
@@ -459,4 +469,8 @@ strong {
 .dataMark {
   font-size: 16px;
   line-height: 20px;
+}
+
+.voteMsg {
+    margin-top: 10px;
 }

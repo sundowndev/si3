@@ -66,7 +66,9 @@ function videoPlayer(player, options, data) {
     this.stop = function(){
         video.pause();
         video.currentTime = 0;
-        options.playing = false;
+        refreshTimer();
+        parent.options.playing = false;
+        pButton.innerHTML = '<img class="playImg" src="./assets/img/playerButtons/play-arrow.png">';
     }
     
     var prev = function(){}
@@ -145,12 +147,16 @@ function videoPlayer(player, options, data) {
         }
     });
     
+    timeline.addEventListener('input', function(e){
+        timelapsed.style.width = e.srcElement.value+'%';
+    });
+    
     timeline.addEventListener('click', function(e){ // quand on clique sur la timeline, on met à jour le temps actuel de la vidéo
         getCurrentTimerSec(e.toElement.value); // cette fonction permet de convertir la valeur en pourcentage de la timeline en secondes par rapport au temps max. de la vidéo
     });
     
     video.addEventListener("playing", function(){ // quand le player est actif...
-        options.playing = true;
+        parent.options.playing = true;
     });
     
     video.addEventListener("timeupdate", function(){ // à chaque instant où la vidéo est jouée, on met à jour le timer
@@ -211,6 +217,21 @@ function videoPlayer(player, options, data) {
         }else{ // sinon on met pause
             parent.pause();
             options.playing = false;
+        }
+    });
+    
+    returnBtn.addEventListener('click', function(e){
+        closeModal();
+
+        voteSaved = false;
+        note = 0;
+        voteMsg.textContent = '';
+
+        film = {};
+        parent.stop();
+        
+        if(parent.options.isFullscreen == true){
+            exitFullscreen();
         }
     });
     

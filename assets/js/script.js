@@ -20,6 +20,15 @@ var video = new videoPlayer('.player', {
 var lang = '';
 var filter = 'all';
 
+var categoryList = document.querySelector('.categoryList');
+categoryList.innerHTML = '';
+
+categoryList.innerHTML += '<li class="items"><a href="#" class="filter-btn active" data="all">Tous</a></li>';
+
+data.categories.forEach(function(e){
+    categoryList.innerHTML += '<li class="items"><a href="#" class="filter-btn" data="'+e+'">'+e+'</a></li>';
+});
+
 var filters_btn = document.querySelectorAll('.filter-btn');
 
 var movieContainer = document.querySelector('.movieContainer');
@@ -88,15 +97,7 @@ async function setThumbnails(element) {
     element.forEach(function(e){
         var html = '<div class="imgContainer video-thumbnail hidden" data="'+e.id+'" style="background: url(./data/thumbnails/'+e.id+'.jpg);"><div class="overlay" data="'+e.id+'"><span data="'+e.id+'">'+e.title+'</span></div></div>';
         
-        if(filter == 'all'){
-            movieContainer.innerHTML += html;
-        }else if(filter == 'action' && e.category == 'Action'){
-            movieContainer.innerHTML += html;
-        }else if(filter == 'horror' && e.category == 'Horror / Thriller'){
-            movieContainer.innerHTML += html;
-        }else if(filter == 'animation' && e.category == 'Animation'){
-            movieContainer.innerHTML += html;
-        }else if(filter == 'comedy' && e.category == 'Comedy'){
+        if(filter == 'all' || filter == e.category){
             movieContainer.innerHTML += html;
         }
     });
@@ -131,11 +132,11 @@ async function openModal(id){
     
     modal.style.opacity = 1;
     
-    var video = {};
+    var videoInfos = {};
     
     data.films.forEach(function(el){
         if(el.id == id){
-            video = el;
+            videoInfos = el;
         }
     });
     
@@ -149,15 +150,26 @@ async function openModal(id){
     filmDesc = document.querySelector('.filmDescription');
     filmNote = document.querySelector('.filmNote');
     
-    filmTitle.textContent = video.title;
-    filmTime.textContent = video.duration;
-    filmDon.href = '#don';
-    filmType.textContent = video.category;
-    filmAuthorText.textContent = video.author;
-    filmAuthor.href = video.author_url;
-    filmYear.textContent = video.year;
-    filmDesc.textContent = video.description;
-    filmNote.textContent = video.rating;
+    filmTitle.textContent = videoInfos.title;
+    filmTime.textContent = videoInfos.duration;
+    filmType.textContent = videoInfos.category;
+    filmAuthorText.textContent = videoInfos.author;
+    filmAuthor.href = videoInfos.author_url;
+    filmYear.textContent = videoInfos.year;
+    filmDesc.textContent = videoInfos.description;
+    filmNote.textContent = videoInfos.rating;
+    
+    filmDon.addEventListener('click', function(){
+        if(this.classList.contains('subscribed')){
+            this.classList.remove('subscribed');
+            this.innerHTML = '<i class="ion-heart"></i> S\'abonner';
+        }else{
+            this.classList.add('subscribed');
+            this.innerHTML = '<i class="ion-checkmark"></i> Abonné';
+        }
+    });
+    
+    video.set(videoInfos.id, videoInfos.src);
 }
 
 /* Close modal */
