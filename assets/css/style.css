@@ -125,57 +125,78 @@ strong {
 /* LANDING ZONE */
 
 .topContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20%;
+  height: 450px;
+  background-image: url(../img/red.jpg);
+  background-repeat: round;
+  background-size: auto;
+  padding-top: 205px;
 }
 
-.imgTitle {
-  width: 335px;
-  height: 316px;
-  transition: .4s;
-}
-
-.imgTitle:hover {
-  transform: scale(1.02);
-}
-
-.textTitle {
-  font-size: 2.5rem;
-  font-family: 'Roboto-Light';
+.topTitle {
+  font-size: 48px;
+  font-weight: bold;
   color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 318px;
 }
 
-.--news {
-  background-image: url("../img/nouveautes.png");
+.starContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 19px;
 }
 
-.--top10 {
-  background-image: url("../img/top10.png");
+.ion-android-star,
+.ion-android-star-outline {
+  color: #fff;
+  font-size: 24px;
 }
 
-.--coupdecoeur {
-  background-image: url("../img/coupdecoeur.png");
+.advice {
+  font-size: 14px;
+  color: #c1b9b9;
+  margin-left: 10px;
 }
+
+.topTextContainer {
+  width: 555px;
+  margin-top: 75px;
+}
+
+.topText {
+  font-size: 18px;
+  color: #fefefe;
+}
+
+
+.buttonWatch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8335c;
+  border-radius: 30px;
+  width: 214px;
+  height: 45px;
+  margin-top: 67px;
+}
+
+.ion-ios-play-outline {
+  color: #fff;
+  font-size: 30px;
+}
+
+.buttonText {
+  font-size: 18px;
+  color: #fff;
+  margin-left: 12px;
+}
+
 
 /* FILTRES */
-
-.itemContainer {
-  margin-top: 9%;
-}
 
 .listItem {
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
   width: 500px;
-  padding-top: 50px;
-  border-top: 2px solid #64e6c4;
 }
 
 .items {
