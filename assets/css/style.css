@@ -123,12 +123,14 @@ strong {
 }
 
 /* LANDING ZONE */
+.landing-top {
+  background-image: url(../img/red.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 .topContainer {
-  height: 450px;
-  background-image: url(../img/red.jpg);
-  background-repeat: round;
-  background-size: auto;
+  height: 100vh;
   padding-top: 205px;
 }
 
