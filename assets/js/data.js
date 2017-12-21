@@ -120,8 +120,8 @@ var data = {
         category: 'Horreur / Thriller'
     }, {
         id: 'LtLD83',
-        src: 'The+Flash+Lite+(Comedy+fan+film)(720p).mp4',
-        title: 'The Flash Lite (Comedy fan film)',
+        src: 'The+Flash+Lite+(comedy+fan+film)(720p).mp4',
+        title: 'The Flash Lite (comedy fan film)',
         duration: '10:14',
         author: 'The Chublin Brothers',
         author_url: 'https://www.youtube.com/channel/UCPFmTZlrfUkRCjGgSLtqx1g',
