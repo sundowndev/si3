@@ -54,7 +54,8 @@ function videoPlayer(player, options, data) {
   this.set = function(id, src) {
     parent.options.index = id;
     parent.options.src = src;
-    video.src = './data/videos/' + src;
+    //video.src = './data/videos/' + src;
+    video.src = 'http://54.36.101.216/hetic-si3/data/' + src;
     video.load();
   }
 
