@@ -20,7 +20,6 @@ var video = new videoPlayer('.player', {
 }, data.films);
 
 /* variables */
-var lang = '';
 var filter = 'all';
 
 var categoryList = document.querySelector('.categoryList');
