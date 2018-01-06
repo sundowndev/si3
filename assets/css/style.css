@@ -132,11 +132,12 @@ strong {
   background-image: url(../img/red.jpg);
   background-repeat: no-repeat;
   background-size: contain;
+  margin-top: 86px;
 }
 
 .topContainer {
-  height: 100vh;
-  padding-top: 205px;
+  height: 70vh;
+  padding-top: 80px;
 }
 
 .topTitle {
